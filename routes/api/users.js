@@ -6,6 +6,7 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const pointSchema = require('../../models/pointSchema')
 
 const router = express.Router();
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
@@ -25,9 +26,14 @@ router.post("/register", (req, res) => {
 				email: "A user has already registered with this address",
 			});
 		} else {
+
+			let loc = new pointSchema()
+
 			const newUser = new User({
 				email: req.body.email,
 				password: req.body.password,
+				location: 
+
 			});
 
 			bcrypt.genSalt(10, (err, salt) => {

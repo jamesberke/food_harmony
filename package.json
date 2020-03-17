@@ -4,12 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-	"start": "node app.js",
-	"server": "nodemon app.js"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@turf/turf": "^5.1.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -17,6 +18,7 @@
     "mongoose": "^5.9.4",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "turf": "^3.0.14",
     "validator": "^12.2.0"
   },
   "devDependencies": {
