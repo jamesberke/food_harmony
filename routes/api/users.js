@@ -4,19 +4,19 @@ const User = require("../../models/User");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
+const pointSchema = require("../../models/pointSchema");
 
 const router = express.Router();
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post("/register", (req, res) => {
-
 	const { errors, isValid } = validateRegisterInput(req.body);
 
 	if (!isValid) {
 		return res.status(400).json(errors);
-	  }
+	}
 
 	//confirm we don't already have this email
 	User.findOne({ email: req.body.email }).then(user => {
@@ -25,9 +25,15 @@ router.post("/register", (req, res) => {
 				email: "A user has already registered with this address",
 			});
 		} else {
+			
 			const newUser = new User({
+				firstName: req.fisrtName,
+				lastName: req.lastName,
 				email: req.body.email,
 				password: req.body.password,
+				location: req.location, 
+				//Expected format: req.location = { type: 'Point', coordinates: [-104.9903, 39.7392] };
+				//Note coordinates[longitude, latitude]
 			});
 
 			bcrypt.genSalt(10, (err, salt) => {
@@ -68,7 +74,7 @@ router.post("/login", (req, res) => {
 	const { errors, isValid } = validateLoginInput(req.body);
 
 	if (!isValid) {
-	  return res.status(400).json(errors);
+		return res.status(400).json(errors);
 	}
 
 	User.findOne({ email }).then(user => {
