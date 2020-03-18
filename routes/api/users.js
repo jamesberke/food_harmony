@@ -27,11 +27,11 @@ router.post("/register", (req, res) => {
 		} else {
 			
 			const newUser = new User({
-				firstName: req.fisrtName,
-				lastName: req.lastName,
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
 				email: req.body.email,
 				password: req.body.password,
-				location: req.location, 
+				location: req.body.location, 
 				//Expected format: req.location = { type: 'Point', coordinates: [-104.9903, 39.7392] };
 				//Note coordinates[longitude, latitude]
 			});
