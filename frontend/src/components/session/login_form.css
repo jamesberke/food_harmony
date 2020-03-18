@@ -1,0 +1,89 @@
+.login-form-container {
+    margin: 6%;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.login-form-title {
+    display: flex;
+    justify-content: center;
+    color: #1a5700;
+    font-size: 32px;
+}
+
+.login-form-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input-header {
+    display: flex;
+    justify-content: center;
+    font-weight: 100;
+    font-size: 16px;
+    color: #3b9915;
+}
+
+.login-form-input {
+    margin: 6px 10%;
+    margin-top: 2px;
+    height: 26px;
+    padding-left: 26px;
+    border: solid 1px #1a5700;
+    border-radius: 5px;
+    font-size: 14px;
+    /* color: #3b9915; */
+    opacity: 0.7;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+.login-form-input:hover {
+    background-color: white;
+}
+
+.login-submit-button {
+    margin: 2px 20%;
+    margin-top: 0px;
+    background-color: #3b9915;
+    border: solid 1px #1a5700;
+    border-radius: 5px;
+    height: 30px;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-submit-button:hover {
+    background-color: #44b317;
+}
+
+.demo-submit-button {
+    margin: 6px 24%;
+    background-color: #ffb20d;
+    border: solid 1px #d49000;
+    border-radius: 5px;
+    height: 28px;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.demo-submit-button:hover {
+    background-color: #ffbf38;
+}
+
+/* .fa-lock {
+    opacity: 0.5;
+    color: gray;
+    position: absolute;
+    left: 11%;
+}
+
+.two {
+    opacity: 0.5;
+    color: gray;
+    position: absolute;
+    left: 11%;
+} */
