@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // const Restaurant = require("./Restaurants");
+const pointSchema = require('./pointSchema')
 
 
 const FoodSchema = new Schema({
@@ -19,7 +20,8 @@ const FoodSchema = new Schema({
         type: Number,
     },
     location: {
-
+		type: pointSchema,
+		required: true
     }
 })
 

@@ -12,7 +12,7 @@ const pointSchema = new mongoose.Schema({
 		required: true,
 	},
 });
-
+pointSchema.index({coordinates: '2dsphere'});
 module.exports = pointSchema;
 
 // const location = new mongoose.Schema({

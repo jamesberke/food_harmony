@@ -32,7 +32,7 @@ router.post("/register", (req, res) => {
 				email: req.body.email,
 				password: req.body.password,
 				location: req.body.location, 
-				//Expected format: req.location = { type: 'Point', coordinates: [-104.9903, 39.7392] };
+				//Expected format: req.body.location = { type: 'Point', coordinates: [-104.9903, 39.7392] };
 				//Note coordinates[longitude, latitude]
 			});
 

@@ -6,7 +6,7 @@ module.exports = function validateRestaurantInput(data) {
 
     data.name = validText(data.name) ? data.name : "";
     data.priceRange = validText(data.priceRange) ? data.priceRange : "";
-    data.food
+    // data.food
 
     if (Validator.isEmpty(data.name)) {
         errors.name = 'Restaurant MUST have a name'
@@ -15,9 +15,9 @@ module.exports = function validateRestaurantInput(data) {
         errors.priceRange = 'Restaurant MUST have a Price Range'
     }
 
-    if (Validator.isEmpty(data.food.photoUrl)) {
-        errors.food.photoUrl = 'to be continued. not done with validations'
-    }
+    // if (Validator.isEmpty(data.food.photoUrl)) {
+    //     errors.food.photoUrl = 'to be continued. not done with validations'
+    // }
 
     return {
         errors, 
