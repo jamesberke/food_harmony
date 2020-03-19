@@ -10,28 +10,40 @@ const validateRestaurantInput = require("../../validation/restaurants");
 router.get("/test", (req, res) => res.json({ msg: "successful test" }));
 
 //gets the restaurants near the location.
-
-router.get("/location", async (req, res) => {
+router.get("/find", async (req, res) => {
 	const geoOptions = {
 		distanceField: "distance.calculated",
 		spherical: true,
-		maxDistance: 20000,
-		key: "location.coordinates"  
-
+		maxDistance: req.body.distance,
+		key: "location.coordinates",
+		//query: additional query params
 	};
 
-	const loc = req.body.location;
 	try {
-		const restaurants = await Restaurant.aggregate([
+		const results = await Restaurant.aggregate([
 			{
 				$geoNear: {
-					near: loc,
+					near: req.body.location,
 					...geoOptions,
 				},
 			},
 		]);
+
+		const restaurants = results.map(result => {
+			return {
+				[result._id]: {
+					id: result._id,
+					name: result.name,
+					priceRange: result.priceRange,
+					coordinates: result.location.coordinates,
+					distance: result.distance.calculated.toFixed(),
+					date: result.date,
+				},
+			};
+		});
+
 		res.status(200).json(restaurants);
-	} catch(error) {
+	} catch (error) {
 		res.status(404).json(error);
 	}
 });
@@ -40,7 +52,6 @@ router.get("/location", async (req, res) => {
 router.post(
 	"/",
 	//passport.authenticate("jwt", { session: false }),
-
 	(req, res) => {
 		const { errors, isValid } = validateRestaurantInput(req.body);
 		if (!isValid) {
