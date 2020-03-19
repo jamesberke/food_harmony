@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const Restaurant = require("./Restaurants");
 const pointSchema = require('./pointSchema')
 
 

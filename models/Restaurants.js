@@ -27,11 +27,3 @@ const RestaurantSchema = new Schema({
 });
 
 module.exports = Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-// let x = {
-// 	name: "Morris Park Bake Shop",
-// 	location: {
-// 		coordinates: [-73.856077, 40.848447],
-// 		type: "Point",
-// 	},
-
-// };

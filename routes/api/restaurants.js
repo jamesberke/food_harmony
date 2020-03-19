@@ -51,7 +51,7 @@ router.get("/find", async (req, res) => {
 // posting new restaurant
 router.post(
 	"/",
-	//passport.authenticate("jwt", { session: false }),
+	passport.authenticate("jwt", { session: false }),
 	(req, res) => {
 		const { errors, isValid } = validateRestaurantInput(req.body);
 		if (!isValid) {
