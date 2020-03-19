@@ -11,21 +11,22 @@
     filter: brightness(78%)
 }
 
+.splash-1-header {
+    position: absolute;
+    top: 64%;
+    left: 4%;
+}
+
 .splash-1-title {
     color: white;
     font-family: sans-serif;
     font-size: 60px;
     font-weight: bold;
-    position: absolute;
-    top: 64%;
-    left: 4%;
 }
 
 .splash-1-text {
     color: white;
     font-family: sans-serif;
     font-size: 18px;
-    position: absolute;
-    top: 78%;
-    left: 4%;
+    margin-left: 4px;
 }
