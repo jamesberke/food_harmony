@@ -10,19 +10,19 @@ const FoodSchema = new Schema({
     description: {
         type: String,
     },
-    restaurantId: {
-        // type: Schema.Types.ObjectId 
-        type: [{ type: Schema.Types.ObjectId, ref: 'restaurants' }]
-                        //what does this do?
-    },
+    // restaurantId: {
+    //     // type: Schema.Types.ObjectId 
+    //     type: [{ type: Schema.Types.ObjectId, ref: 'restaurants' }]
+    //                     //what does this do?
+    // },
     price: {
         type: Number,
     },
-    location: {
-		type: pointSchema,
-		required: true
-    }
+    // location: {
+	// 	type: pointSchema,
+	// 	required: true
+    // }
 })
 
 
-module.exports = Food = mongoose.model( 'foods', FoodSchema);
+module.exports = Food = mongoose.model( 'Food', FoodSchema);

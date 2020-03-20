@@ -38,7 +38,7 @@ router.post("/register", (req, res) => {
 				req.body.location = 
 					{ type: 'Point', coordinates: [-104.9903, 39.7392] };
 				
-					Note coordinates[longitude, latitude]
+					Note: coordinates[longitude, latitude]
 				 */
 			});
 

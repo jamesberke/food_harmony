@@ -16,10 +16,11 @@ router.get("/find", async (req, res) => {
 		spherical: true,
 		maxDistance: req.body.distance,
 		key: "location.coordinates",
-		//query: additional query params
+		//query: additional query params ie with description?
 	};
 
 	try {
+		let limit = req.body.limit ? req.body.limit : 10;
 		const results = await Restaurant.aggregate([
 			{
 				$geoNear: {
@@ -27,18 +28,33 @@ router.get("/find", async (req, res) => {
 					...geoOptions,
 				},
 			},
+			{
+				$limit: limit,
+			},
 		]);
 
 		const restaurants = results.map(result => {
+			/*
+				return a key-value pair with [id => {id:..., name...}, id => {id:..., name...}]
+			
+			 return {
+			 	[result._id]: {
+			 		id: result._id,
+			 		name: result.name,
+			 		priceRange: result.priceRange,
+			 		coordinates: result.location.coordinates,
+			 		distance: result.distance.calculated.toFixed(),
+			 		date: result.date,
+			 	},
+			 };*/
+
 			return {
-				[result._id]: {
-					id: result._id,
-					name: result.name,
-					priceRange: result.priceRange,
-					coordinates: result.location.coordinates,
-					distance: result.distance.calculated.toFixed(),
-					date: result.date,
-				},
+				id: result._id,
+				name: result.name,
+				priceRange: result.priceRange,
+				coordinates: result.location.coordinates,
+				distance: result.distance.calculated.toFixed(),
+				date: result.date,
 			};
 		});
 

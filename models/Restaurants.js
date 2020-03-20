@@ -8,7 +8,7 @@ const RestaurantSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	food: {
+	foods: {
 		type: [Food.Schema],
 	},
 	priceRange: {
