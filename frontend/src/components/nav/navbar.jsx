@@ -1,6 +1,7 @@
 import "./navbar.css";
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from './foodharmony-logo-2.png';
 
 
 class NavBar extends React.Component {
@@ -12,6 +13,7 @@ class NavBar extends React.Component {
         return (
           <div className="navbar-container">
             <div className="navbar-left">
+              <img src={logo} className="nav-logo" />
               <div className="navbar-logo-main">FoodHarmony</div>
               <input className="navbar-search" type="text" value="SEARCH..." />
             </div>

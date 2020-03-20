@@ -25,10 +25,15 @@
     justify-content: flex-end;
 }
 
+.nav-logo {
+    height: 38px;
+    margin-left: 4%;
+}
+
 .navbar-logo-main {
     font-size: 28px;
     color: #3b9915;
-    margin-left: 5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar-search {
