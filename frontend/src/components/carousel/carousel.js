@@ -16,12 +16,12 @@ const flickityOptions = {
 function Carousel() {
   return (
     <Flickity
-      className={"carousel"} // default ''
-      elementType={"div"} // default 'div'
-      options={flickityOptions} // takes flickity options {}
-      disableImagesLoaded={false} // default false
-      reloadOnUpdate // default false
-    //   static
+      className={"carousel"}
+      elementType={"div"}
+      options={flickityOptions}
+      disableImagesLoaded={false}
+      reloadOnUpdate 
+      static
     >
       <img src={bbq} className="carousel-image" />
       <img src={burger} className="carousel-image" />
