@@ -28,6 +28,7 @@
     "multer": "^1.4.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-flickity-component": "^3.5.0",
     "turf": "^3.0.14",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
