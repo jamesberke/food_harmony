@@ -7,18 +7,7 @@ const keys = require("../../config/keys");
 const AWS = require("aws-sdk"); 
 const multerS3 = require("multer-s3")
 const multer = require("multer")
-
-// const fs = require("fs");
-// const fileType = require("file-type");
-// const bluebird = require("bluebird");
-// const multiparty = require("multiparty");
-
-// const s3_bucket = keys.AWS_BUCKET_NAME;
-// const accessKey = keys.AWS_ACCESS_KEY_ID;
-// const secretKey = keys.AWS_SECRET_KEY_ID;
-
-const Foods = require("../../models/Foods");
-// const validateRestaurantInput = require("../../validation/restaurants");
+const Foods = require("../../models/Food");
 
 AWS.config.update({
   secretAccessKey: keys.AWS_SECRET_KEY_ID,
@@ -30,29 +19,24 @@ const s3 = new AWS.S3()
 
 router.get("/test", (req, res) => res.json({ msg: "food route" }));
 
-router.get("/:foodsId", (req, res) => {
-  
-})
 
 
-// test
+
 const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: keys.AWS_BUCKET_NAME,
+    contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function(req, file, cb) {
       console.log(file);
       cb(null, Date.now().toString());
-      //cb(null, file.originalname); //use cb(null, Date.now().toString()) for unique file keys
     }
   })
 }).single("picture");
-// end
 
 
 router.post( "/new", (req, res) => {
-    const s3FileUrl = keys.AWS_Uploaded_file_URL_LINK;
-    // test begin
+    // const s3FileUrl = keys.AWS_Uploaded_file_URL_LINK;
       upload(req, res, err => {
         console.log(res);
         if (err) {
