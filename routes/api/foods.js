@@ -8,17 +8,11 @@ const AWS = require("aws-sdk");
 const multerS3 = require("multer-s3")
 const multer = require("multer")
 
-// const fs = require("fs");
-// const fileType = require("file-type");
-// const bluebird = require("bluebird");
-// const multiparty = require("multiparty");
 
-// const s3_bucket = keys.AWS_BUCKET_NAME;
-// const accessKey = keys.AWS_ACCESS_KEY_ID;
-// const secretKey = keys.AWS_SECRET_KEY_ID;
 
 const Foods = require("../../models/Foods");
 // const validateRestaurantInput = require("../../validation/restaurants");
+
 
 AWS.config.update({
   secretAccessKey: keys.AWS_SECRET_KEY_ID,
@@ -72,3 +66,4 @@ router.post( "/new", (req, res) => {
 );
 
 module.exports = router;
+
