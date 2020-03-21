@@ -1,29 +1,40 @@
-const Busboy = require('busboy');module.exports = (app) => {
-  // The following is an example of making file upload with 
-  // additional body parameters.
-  // To make a call with PostMan
-  // Don't put any headers (content-type)
-  // Under body:
-  // check form-data
-  // Put the body with "element1": "test", "element2": image file  app.post('/api/upload', function (req, res, next) {
-   // This grabs the additional parameters so in this case passing     
-   // in "element1" with a value.
-   const element1 = req.body.element1;   var busboy = new Busboy({ headers: req.headers });   // The file upload has completed
-   busboy.on('finish', function() {
-    console.log('Upload finished');    // Your files are stored in req.files. In this case,
-    // you only have one and it's req.files.element2:
-    // This returns:
-    // {
-    //    element2: {
-    //      data: ...contents of the file...,
-    //      name: 'Example.jpg',
-    //      encoding: '7bit',
-    //      mimetype: 'image/png',
-    //      truncated: false,
-    //      size: 959480
-    //    }
-    // }    // Grabs your file object from the request.
-    const file = req.files.element2;
-    console.log(file);
-   });   req.pipe(busboy);
-  };
+const express = require('express');
+const router = express.Router();
+const AWS = require("aws-sdk");
+const keys = require("../../config/keys")
+// const upload = require('../upload')
+const multerS3 = require("multer-s3");
+const multer = require("multer");
+
+
+AWS.config.update({
+  secretAccessKey: keys.AWS_SECRET_KEY_ID,
+  accessKeyId: keys.AWS_ACCESS_KEY_ID,
+  region: keys.AWS_REGION
+});
+const s3 = new AWS.S3();
+
+router.get("/test", (req, res) => res.json({ msg: "test route" }));
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: keys.AWS_BUCKET_NAME,
+    key: function(req, file, cb) {
+      console.log(file);
+      cb(null, file.originalname); //use cb(Date.now().toString()) for unique file keys
+    }
+  })
+}).single("demo_image");
+//uploads with key of demo-image
+router.post('/upload', function(req, res) {
+  upload(req, res, err => {
+    console.log(res)
+    if (err) {
+      res.status(400).send("Something went wrong!");
+    }
+    res.send(req.file);
+  });
+});
+
+module.exports = router

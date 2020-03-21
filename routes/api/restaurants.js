@@ -4,17 +4,13 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-const Restaurants = require("../../models/Restaurants");
+const Restaurant = require("../../models/Restaurant");
 const validateRestaurantInput = require("../../validation/restaurants");
 
 router.get("/test", (req, res) => res.json({ msg: "successful test" }));
 
 // posting new restaurant
-router.post(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-
-  (req, res) => {
+router.post( "/", (req, res) => {
     const { errors, isValid } = validateRestaurantInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
@@ -38,12 +34,5 @@ router.post(
 );
 
 // posting photos w/ restaurant ID
-router.patch(
-  "/:restaurantId",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Restaurant.findById(req.params.restaurantId, (err, restaurant) => {});
-  }
-);
 
 module.exports = router;

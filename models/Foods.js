@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 // const Restaurant = require("./Restaurants");
 
 const FoodSchema = new Schema({
-  photoUrl: {
+  photo: {
     type: String
   },
   description: {
@@ -17,7 +17,13 @@ const FoodSchema = new Schema({
   price: {
     type: Number
   },
-  location: {}
+  location: {
+
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = Food = mongoose.model("foods", FoodSchema);
