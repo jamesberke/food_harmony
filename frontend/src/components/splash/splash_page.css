@@ -1,0 +1,35 @@
+.splash-1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+}
+
+.splash-background-image {
+    width: 100%;
+    height: auto;
+    filter: brightness(78%)
+}
+
+.splash-1-header {
+    position: absolute;
+    top: 32%;
+    left: 4%;
+}
+
+.splash-1-title {
+    color: white;
+    font-family: sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.splash-1-text {
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.splash-2 {
+}
