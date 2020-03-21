@@ -35,8 +35,3 @@ app.use("/api/restaurants", restaurants);
 app.use("/api/foods", foods);
 
 
-
-const file = require("./routes/api/file")
-app.use("/api/file", file)
-
-

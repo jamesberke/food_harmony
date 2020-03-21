@@ -38,7 +38,7 @@ router.post( "/new", (req, res) => {
       upload(req, res, err => {
         console.log(res);
         if (err) {
-          res.status(400).send("Something went wrong!");
+          res.status(400).send("Could not save to server!");
         } else {
           res.send(req.file);
           const newFood = new Food({
