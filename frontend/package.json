@@ -12,11 +12,8 @@
     "jwt-decode": "^2.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-<<<<<<< HEAD
     "react-redux": "^7.2.0",
-=======
     "react-flickity-component": "^3.5.0",
->>>>>>> 3f45eceb06e53c40810f2c11e522f95ee159404e
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
