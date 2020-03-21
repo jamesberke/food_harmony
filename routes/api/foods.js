@@ -1,13 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
-const passport = require("passport");
 const keys = require("../../config/keys");
 const AWS = require("aws-sdk"); 
 const multerS3 = require("multer-s3")
 const multer = require("multer")
-const Foods = require("../../models/Food");
+const Food = require("../../models/Food");
+
 
 AWS.config.update({
   secretAccessKey: keys.AWS_SECRET_KEY_ID,
@@ -56,3 +54,4 @@ router.post( "/new", (req, res) => {
 );
 
 module.exports = router;
+
