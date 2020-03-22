@@ -11,24 +11,6 @@ const validateRestaurantInput = require("../../validation/restaurants");
 router.get("/test", (req, res) => res.json({ msg: "successful test" }));
 
 // posting new restaurant
-<<<<<<< HEAD
-router.post( "/", (req, res) => {
-    const { errors, isValid } = validateRestaurantInput(req.body);
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    const newRestaurant = new Restaurant({
-      name: req.body.name,
-      food: req.body.food, //should we keep this here? or expand on it with empty strings?
-      priceRange: req.body.priceRange,
-      // location: 
-    });
-
-    newRestaurant.save().then(restaurant => res.json(restaurant));
-  }
-);
-=======
 // router.post( "/", (req, res) => {
 //     const { errors, isValid } = validateRestaurantInput(req.body);
 //     if (!isValid) {
@@ -51,14 +33,13 @@ router.post( "/", (req, res) => {
 //     newRestaurant.save().then(restaurant => res.json(restaurant));
 //   }
 // );
->>>>>>> integrated-search-aws
 
 // posting photos w/ restaurant ID
 
 module.exports = router;
 
 //gets the restaurants near the location.
-router.get("/find", async (req, res) => {
+router.get("/find", (req, res) => {
 	const geoOptions = {
 		distanceField: "distance.calculated",
 		spherical: true,
@@ -67,9 +48,9 @@ router.get("/find", async (req, res) => {
 		//query: additional query params ie with description?
 	};
 
-	try {
+	// try {
 		let limit = req.body.limit ? req.body.limit : 10;
-		const results = await Restaurant.aggregate([
+		const results = Restaurant.aggregate([
 			{
 				$geoNear: {
 					near: req.body.location,
@@ -106,10 +87,10 @@ router.get("/find", async (req, res) => {
 			};
 		});
 
-		res.status(200).json(restaurants);
-	} catch (error) {
-		res.status(404).json(error);
-	}
+		res.status(200).json("TEST!");
+	// } catch (error) {
+	// 	res.status(404).json(error);
+	// }
 });
 
 // posting new restaurant

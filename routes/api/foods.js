@@ -4,8 +4,8 @@ const keys = require("../../config/keys");
 const AWS = require("aws-sdk");
 const multerS3 = require("multer-s3");
 const multer = require("multer");
-
-const Food = require("../../models/Foods");
+const passport = require("passport");
+const Food = require("../../models/Food");
 const Restaurant = require("../../models/Restaurants");
 // const validateRestaurantInput = require("../../validation/restaurants");
 
