@@ -1,9 +1,6 @@
 
 
 module.exports = {
-  mongoURI:
-    "mongodb+srv://dev:diaCMSlSTfxD6sTI@cluster0-edxqb.mongodb.net/test?retryWrites=true&w=majority",
-  secretOrKey: "secret",
 
   AWS_BUCKET_NAME: "foodharmony",
   AWS_REGION: "us-west-1",
