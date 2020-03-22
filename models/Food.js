@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// const Restaurant = require("./Restaurants");
+const pointSchema = require('./pointSchema')
 
 const FoodSchema = new Schema({
   photo: {
@@ -9,21 +9,21 @@ const FoodSchema = new Schema({
   description: {
     type: String
   },
-  restaurantId: {
-    // type: Schema.Types.ObjectId
-    type: [{ type: Schema.Types.ObjectId, ref: "restaurants" }]
-    //what does this do?
-  },
+//   restaurantId: {
+//     // type: Schema.Types.ObjectId
+//     type: [{ type: Schema.Types.ObjectId, ref: "restaurants" }]
+//     //what does this do?
+//   },
   price: {
     type: Number
   },
-  location: {
+//   location: {
 
-  },
+//   },
   date: {
     type: Date,
     default: Date.now
   }
 });
 
-module.exports = Food = mongoose.model("foods", FoodSchema);
+module.exports = Food = mongoose.model( 'Food', FoodSchema);

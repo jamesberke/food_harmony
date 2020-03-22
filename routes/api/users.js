@@ -27,13 +27,19 @@ router.post("/register", (req, res) => {
 		} else {
 			
 			const newUser = new User({
-				firstName: req.fisrtName,
-				lastName: req.lastName,
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
 				email: req.body.email,
 				password: req.body.password,
-				location: req.location, 
-				//Expected format: req.location = { type: 'Point', coordinates: [-104.9903, 39.7392] };
-				//Note coordinates[longitude, latitude]
+				location: req.body.location, 
+				
+				/*Expected format is geoJSON:
+				
+				req.body.location = 
+					{ type: 'Point', coordinates: [-104.9903, 39.7392] };
+				
+					Note: coordinates[longitude, latitude]
+				 */
 			});
 
 			bcrypt.genSalt(10, (err, salt) => {
@@ -89,8 +95,7 @@ router.post("/login", (req, res) => {
 				jwt.sign(
 					payload,
 					keys.secretOrKey,
-					// Tell the key to expire in one hour
-					{ expiresIn: 3600 },
+					{ expiresIn: 3600 }, // Tell the key to expire in one hour
 					(err, token) => {
 						res.json({
 							success: true,

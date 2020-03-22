@@ -1,7 +1,8 @@
-/config/keys.js
 /node_modules
-/package-lock.json
 
 /config/keys.js
 /config/keys_dev.js
 /config/keys_prod.js
+package-lock.json
+/frontend/package-lock.json
+/frontend/node_modules
