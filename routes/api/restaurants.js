@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-const Restaurant = require("../../models/Restaurant");
+const Restaurant = require("../../models/Restaurants");
 
 const validateRestaurantInput = require("../../validation/restaurants");
 
@@ -39,7 +39,7 @@ router.get("/test", (req, res) => res.json({ msg: "successful test" }));
 module.exports = router;
 
 //gets the restaurants near the location.
-router.get("/find", (req, res) => {
+router.get("/find", async (req, res) => {
 	const geoOptions = {
 		distanceField: "distance.calculated",
 		spherical: true,
@@ -48,9 +48,9 @@ router.get("/find", (req, res) => {
 		//query: additional query params ie with description?
 	};
 
-	// try {
+	try {
 		let limit = req.body.limit ? req.body.limit : 10;
-		const results = Restaurant.aggregate([
+		const results = await Restaurant.aggregate([
 			{
 				$geoNear: {
 					near: req.body.location,
@@ -87,10 +87,10 @@ router.get("/find", (req, res) => {
 			};
 		});
 
-		res.status(200).json("TEST!");
-	// } catch (error) {
-	// 	res.status(404).json(error);
-	// }
+		res.status(200).json(restaurants);
+	} catch (error) {
+		res.status(404).json(error);
+	}
 });
 
 // posting new restaurant
