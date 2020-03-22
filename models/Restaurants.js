@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Food = require("./Foods");
+const Food = require("./Food");
 const pointSchema = require("./pointSchema");
 
 const RestaurantSchema = new Schema({
