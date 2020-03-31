@@ -24,6 +24,12 @@ const RestaurantSchema = new Schema({
 		type: pointSchema,
 		required: true,
 	},
+	placeId: {
+
+	},
+	address: {
+		type: String
+	},
 });
 
 module.exports = Restaurant = mongoose.model("Restaurant", RestaurantSchema);
