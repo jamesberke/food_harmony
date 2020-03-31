@@ -1,0 +1,17 @@
+.food-items-container {
+	display: flex;
+	justify-content: center;
+	/* flex-flow: row wrap; */
+	flex-wrap: wrap;
+	width: 100%;
+}
+.food-index-item img{
+	flex: auto;
+	min-width: 300px;
+	height: 300px;
+	margin: 8px 8px 8px 8px;
+}
+
+.food-index-item {
+
+}

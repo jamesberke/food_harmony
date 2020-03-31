@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import FoodIndex from './food_index';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => 
+	{
 
-});
+};
 
 const mapDispatchToProps = dispatch => ({
 

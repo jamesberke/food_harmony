@@ -1,14 +1,15 @@
 import React from "react";
 import FoodIndexItem from "./food_index_item";
 import * as DataUtil from "../../util/data_util";
+import './food-index.css';
 
 class FoodIndex extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { loading: true, foods: [] };
 	}
-
-	componentDidMount() {
+	
+	async componentDidMount() {
 		let info = {
 			location: {
 				type: "Point",
@@ -16,17 +17,15 @@ class FoodIndex extends React.Component {
 			},
 			distance: 10000,
 		};
+		
+		try {
 
-		// debugger
-		DataUtil.fetchFoods(info).then(
-			resp => {
-				// debugger
-				this.setState({ loading: false, foods: resp.data });
-			},
-			err => {
-				console.log(err);
-			}
-		);
+			let resp = await DataUtil.fetchFoods(info)
+			this.setState({loading:false, foods: resp.data})
+		}
+		catch(e) {
+			console.err(e)
+		}
 	}
 
 	render() {
@@ -45,7 +44,9 @@ class FoodIndex extends React.Component {
 		return (
 			<div className="splash-container">
 				<div className="splash-1">
+					<div className="food-items-container">
 					{foodItems}
+					</div>
 				</div>
 				<div className="splash-2"></div>
 			</div>
