@@ -36,10 +36,5 @@ app.use("/api/restaurants", restaurants);
 app.use("/api/foods", foods);
 
 // 
-const http = context.services.get("GooglePlaces");
-    return http
-        .get({url: GooglePlacesSearchURL})
-        .then(res => {
-            let search_result = EJSON.parse(res.body.text());
-        });
+
 
