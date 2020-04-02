@@ -44,7 +44,9 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "uuid": "^7.0.2",
-    "validator": "^12.2.0"
+    "validator": "^12.2.0",
+    "yelp-fusion": "^3.0.0",
+    "yelpv3": "^1.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
