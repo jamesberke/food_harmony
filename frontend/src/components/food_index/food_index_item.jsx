@@ -21,9 +21,24 @@ class FoodIndexItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.demoFoods = [bbq, burger, dumplings, pasta, pizza, sushi, tacos];
+
+	}
+
+	priceCategory(price) {
+		if(price > 0 && price < 15) {
+			return 1
+		} else if (price >= 15 && price < 50) {
+			return 2
+		} else if (price >= 50) {
+			return 3
+		}
 	}
 
 	render() {
+		let priceRange = []
+		for(let i = 0; i < this.priceCategory(this.props.food.price); i++) {
+			priceRange.push("$")
+		}
 		let i = Math.floor(Math.random() * this.demoFoods.length);
 		return (
 			<div className="food-index-item">
@@ -41,14 +56,17 @@ class FoodIndexItem extends React.Component {
 							<Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} />
 						</div>
 						<div className="overlay-details">
-							<div className="overlay-details-item-1">$ $ $</div>
+							<div className="overlay-details-item-1">
+								
+							{priceRange.join(" ")}
+							</div>
 							<div className="overlay-details-item-2"></div>
 							<div className="overlay-details-item-3">
 								{/* <span>
 									<Icon icon={locationArrow} />
 								</span> */}
 								<span className="overlay-details-item-3-text">
-									10 MI
+									{(this.props.food.distance/1000).toFixed(1)} km
 								</span>
 							</div>
 						</div>
