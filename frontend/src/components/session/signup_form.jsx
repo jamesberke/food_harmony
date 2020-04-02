@@ -11,6 +11,10 @@ class SignupForm extends React.Component {
     return event => this.setState({ [field]: event.target.value });
   }
 
+  handleSubmit() {
+    this.props.signup(this.state);
+  }
+
   render() {
     return (
       <div className="signup-form-container">

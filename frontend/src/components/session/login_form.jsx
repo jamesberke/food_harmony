@@ -11,6 +11,10 @@ class LoginForm extends React.Component {
     return event => this.setState({ [field]: event.target.value });
   }
 
+  handleSubmit() {
+    this.props.login(this.state);
+  }
+
   render() {
     return (
       <div className="login-form-container">
