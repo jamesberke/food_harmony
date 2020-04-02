@@ -5,7 +5,7 @@ import { login } from "../../actions/session_actions";
 const mapStateToProps = state => ({
     currentUser: state.session.user,
     user: {
-    username: "",
+    email: "",
     password: ""
     },
     errors: state.errors.sessionErrors
