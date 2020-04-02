@@ -1,9 +1,6 @@
 //DELETE BEFORE PASSING THROUGH, JUST IN CASE.
 
 
-
-
-
 // WATCH OUT FOR THIS ONE
 
 // old bucket policy
