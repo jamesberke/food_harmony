@@ -11,7 +11,7 @@ const App = () => (
         <Modal />
         <NavBarContainer />
         <Switch>
-            <AuthRoute exact path="/" component={SplashPageContainer} />
+            <AuthRoute exact path="/" component={SplashPageContainer} redirect="/index" />
         </Switch>
     </div>
 );
