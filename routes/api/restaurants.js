@@ -9,7 +9,6 @@ const multer = require("multer");
 const keys = require("../../config/keys");
 const Restaurant = require("../../models/Restaurants");
 
-// const validateRestaurantInput = require("../../validation/restaurants");
 
 AWS.config.update({
   secretAccessKey: keys.AWS_SECRET_KEY_ID,
@@ -103,22 +102,29 @@ router.post(
 			if (err) {
 				res.status(400).send("Could not reach AWS S3")
 			} else {
-				// const { errors, isValid } = validateRestaurantInput(req.body);
-				// if (!isValid) {
-				// 	return res.status(400).json(errors);
-				// }
 				const newRestaurant = new Restaurant({
 					name: req.body.name,
-					// food: req.body.food, //should we keep this here? or expand on it with empty strings?
 					priceRange: req.body.priceRange,
 					photo: req.file.location
-					// location: req.body.location,
 				});
 				newRestaurant.save().then(restaurant => res.json(restaurant));
 			}
 		});
 	}
 );
+
+
+// test because i cant upload
+router.post("/test2", (req, res) => {
+		const newRestaurant = new Restaurant({
+			name: req.body.name,
+			priceRange: req.body.priceRange,
+		});
+
+		newRestaurant.save().then(restaurant => res.json(restaurant));
+	}
+);
+
 
 // posting photos w/ restaurant ID
 router.patch(
