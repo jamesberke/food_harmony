@@ -12,8 +12,8 @@ const App = () => (
         <Modal />
         <NavBarContainer />
         <Switch>
-            <AuthRoute exact path="/" component={SplashPageContainer} />
-			      <Route exact path = "/index" component={FoodIndexContainer} />
+            <AuthRoute exact path="/" component={SplashPageContainer} redirect = '/index'/>
+			<ProtectedRoute exact path = "/index" component={FoodIndexContainer} redirect = '/'/>
         </Switch>
     </div>
 );
