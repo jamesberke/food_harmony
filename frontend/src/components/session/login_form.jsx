@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from "react-router-dom"
 import './login_form.css'
 
 class LoginForm extends React.Component {
@@ -18,6 +19,11 @@ class LoginForm extends React.Component {
   }
 
   render() {
+
+	if(this.props.isAuthenticated) {
+		return (<Redirect to={'/index'} />)
+	}
+
     return (
       <div className="login-form-container">
         <div className="login-form-title">Sign in to FoodHarmony</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./signup_form.css";
+import {Redirect} from "react-router-dom"
 
 class SignupForm extends React.Component {
 	constructor(props) {
@@ -39,6 +40,10 @@ class SignupForm extends React.Component {
 	}
 
 	render() {
+		if(this.props.isAuthenticated) {
+			return (<Redirect to={'/index'} />)
+		}
+
 		return (
 			<div className="signup-form-container">
 				<div className="signup-form-title">Join FoodHarmony</div>

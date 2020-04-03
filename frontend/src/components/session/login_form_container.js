@@ -3,6 +3,7 @@ import LoginForm from "./login_form";
 import { login } from "../../actions/session_actions";
 
 const mapStateToProps = state => ({
+	isAuthenticated: state.session.isAuthenticated,
 	currentUser: state.session.user,
 	user: {
 		email: "",
