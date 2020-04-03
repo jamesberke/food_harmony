@@ -87,7 +87,6 @@ const upload = multer({
     key: function(req, file, cb) {
       console.log(file);
       cb(null, Date.now().toString());
-      //cb(null, file.originalname); //use cb(null, Date.now().toString()) for unique file keys
     }
   })
 }).single("picture");
