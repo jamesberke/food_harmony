@@ -22,7 +22,7 @@ const RestaurantSchema = new Schema({
 
 	location: {
 		type: pointSchema,
-		// required: true,
+		required: true,
 	},
 
 	photo: {

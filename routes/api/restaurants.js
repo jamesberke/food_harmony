@@ -105,7 +105,8 @@ router.post(
 				const newRestaurant = new Restaurant({
 					name: req.body.name,
 					priceRange: req.body.priceRange,
-					photo: req.file.location
+					photo: req.file.location,
+					location: req.body.location
 				});
 				newRestaurant.save().then(restaurant => res.json(restaurant));
 			}
