@@ -1,7 +1,8 @@
 import axios from "axios";
 
 /* 
-	Expected info format for fetchFoods and fetchRestaurants:
+	Expected info format for location based query for
+	fetchFoods and fetchRestaurants:
 {
     "location": {
         "type": "Point",
@@ -14,8 +15,7 @@ import axios from "axios";
 }
 */
 export const fetchFoods = info => {
-	// return axios.post("/api/users/register", userData);
-	return axios.post("http://localhost:5000/api/foods/find", info);
+	return axios.post("/api/foods/find", info);
 
 };
 

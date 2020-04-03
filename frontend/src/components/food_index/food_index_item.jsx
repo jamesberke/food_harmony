@@ -9,10 +9,10 @@ import tacos from "../../components/carousel/carousel_images/carousel-tacos.jpg"
 import "./food-index.css";
 
 import { Icon, InlineIcon } from "@iconify/react";
-import heavyDollarSign from "@iconify/icons-noto/heavy-dollar-sign";
-import locationIcon from "@iconify/icons-oi/location";
+// import heavyDollarSign from "@iconify/icons-noto/heavy-dollar-sign";
+// import locationIcon from "@iconify/icons-oi/location";
 // npm install --save-dev @iconify/react @iconify/icons-fa-solid
-import locationArrow from "@iconify/icons-fa-solid/location-arrow";
+// import locationArrow from "@iconify/icons-fa-solid/location-arrow";
 
 // npm install --save-dev @iconify/react @iconify/icons-oi
 import starIcon from "@iconify/icons-oi/star";
