@@ -114,16 +114,7 @@ router.post(
 );
 
 
-// test because i cant upload
-router.post("/test2", (req, res) => {
-		const newRestaurant = new Restaurant({
-			name: req.body.name,
-			priceRange: req.body.priceRange,
-		});
 
-		newRestaurant.save().then(restaurant => res.json(restaurant));
-	}
-);
 
 
 // posting photos w/ restaurant ID
