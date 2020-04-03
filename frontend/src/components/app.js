@@ -13,7 +13,7 @@ const App = () => (
         <NavBarContainer />
         <Switch>
             <AuthRoute exact path="/" component={SplashPageContainer} />
-			<Route exact path = "/index" component={FoodIndexContainer} />
+			      <Route exact path = "/index" component={FoodIndexContainer} />
         </Switch>
     </div>
 );
