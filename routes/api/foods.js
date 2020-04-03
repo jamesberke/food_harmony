@@ -8,7 +8,6 @@ const passport = require("passport");
 const Food = require("../../models/Food");
 const Restaurant = require("../../models/Restaurants");
 // const validateRestaurantInput = require("../../validation/restaurants");
-
 AWS.config.update({
 	secretAccessKey: keys.AWS_SECRET_KEY_ID,
 	accessKeyId: keys.AWS_ACCESS_KEY_ID,
@@ -52,7 +51,8 @@ router.post(
 
 //Find for foods is actually being done as a restaurant search, where we performa geo search on
 //restaurants collection based on the location and then extract the foods from them.
-router.get("/find", async (req, res) => {
+router.post("/find", async (req, res) => {
+
 	const geoOptions = {
 		distanceField: "distance.calculated",
 		spherical: true,
