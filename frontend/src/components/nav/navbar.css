@@ -59,7 +59,8 @@
 }
 
 .navbar-login:hover {
-    color: #44b317;
+	color: #44b317;
+	cursor: pointer;
 }
 
 .navbar-signup {
@@ -72,5 +73,6 @@
 }
 
 .navbar-signup:hover {
-    color: #44b317;
+	color: #44b317;
+	cursor: pointer;
 }
