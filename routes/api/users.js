@@ -100,6 +100,12 @@ router.post("/login", (req, res) => {
 						res.json({
 							success: true,
 							token: "Bearer " + token,
+							user: {
+								firstName: user.firstName,
+								lastName: user.lastName,
+								email: user.email,
+								location: user.location.coordinates
+							}
 						});
 					}
 				);
