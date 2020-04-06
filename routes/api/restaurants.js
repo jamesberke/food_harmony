@@ -86,7 +86,8 @@ const upload = multer({
     bucket: keys.AWS_BUCKET_NAME,
     key: function(req, file, cb) {
       console.log(file);
-      cb(null, Date.now().toString());
+	  cb(null, file.originalname) //names file original name
+	//   cb(null, Date.now().toString()); //extra feature when ready
     }
   })
 }).single("picture");
