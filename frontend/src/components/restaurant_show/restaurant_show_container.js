@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import RestaurantShow from './restaurant_show';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+    debugger;
+    return ({
 
-});
+    });
+};
 
 const mapDispatchToProps = dispatch => ({
 

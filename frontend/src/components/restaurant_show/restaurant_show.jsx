@@ -5,6 +5,10 @@ class RestaurantShow extends React.Component {
         super(props);
     };
 
+    getPriceRange() {
+        
+    }
+
     render() {
         return(
             <div className="restaurant-show-container">
@@ -13,9 +17,10 @@ class RestaurantShow extends React.Component {
                 </img>
                 <div className="restaurant-info-container">
                     <div className="restaurant-title"></div>
+                    <div className="restaurant-price-value"></div>
                     <div className="restaurant-phone-number"></div>
                     <div className="restaurant-address"></div>
-                    
+
                 </div>
             </div>
         )
