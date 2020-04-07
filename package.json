@@ -30,10 +30,11 @@
     "fs": "0.0.1-security",
     "jimp": "^0.9.6",
     "jsonwebtoken": "^8.5.1",
-    "multer-s3": "^2.9.0",
-    "multiparty": "^4.2.1",
+    "mongodb-stitch-browser-sdk": "^4.8.0",
     "mongoose": "^5.9.5",
     "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "multiparty": "^4.2.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react-flickity-component": "^3.5.0",
@@ -43,7 +44,9 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "uuid": "^7.0.2",
-    "validator": "^12.2.0"
+    "validator": "^12.2.0",
+    "yelp-fusion": "^3.0.0",
+    "yelpv3": "^1.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

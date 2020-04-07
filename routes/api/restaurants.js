@@ -3,38 +3,22 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const passport = require("passport");
-
+const AWS = require("aws-sdk");
+const multerS3 = require("multer-s3");
+const multer = require("multer");
+const keys = require("../../config/keys");
 const Restaurant = require("../../models/Restaurants");
 
-const validateRestaurantInput = require("../../validation/restaurants");
+
+AWS.config.update({
+  secretAccessKey: keys.AWS_SECRET_KEY_ID,
+  accessKeyId: keys.AWS_ACCESS_KEY_ID,
+  region: keys.AWS_REGION
+});
+const s3 = new AWS.S3();
 
 router.get("/test", (req, res) => res.json({ msg: "successful test" }));
 
-// posting new restaurant
-// router.post( "/", (req, res) => {
-//     const { errors, isValid } = validateRestaurantInput(req.body);
-//     if (!isValid) {
-//       return res.status(400).json(errors);
-//     }
-
-//     const newRestaurant = new Restaurant({
-//       name: req.body.name,
-//       food: req.body.food, //should we keep this here? or expand on it with empty strings?
-//       priceRange: req.body.priceRange
-//       // photoUrl: req.body.food.photoUrl,
-//       // description: req.body.food.description,
-//       // restaurantId: req.body.food.restaurantId,
-//       // price: req.body.food.price,
-//       // location: req.body.food.location,
-//       // priceRange: req.body.priceRange
-//       // add these qualities in some kind of update function...
-//     });
-
-//     newRestaurant.save().then(restaurant => res.json(restaurant));
-//   }
-// );
-
-// posting photos w/ restaurant ID
 
 module.exports = router;
 
@@ -93,32 +77,46 @@ router.get("/find", async (req, res) => {
 	}
 });
 
+
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    bucket: keys.AWS_BUCKET_NAME,
+    key: function(req, file, cb) {
+      console.log(file);
+	  cb(null, file.originalname) //names file original name
+	//   cb(null, Date.now().toString()); //extra feature when ready
+    }
+  })
+}).single("picture");
+
+
 // posting new restaurant
 router.post(
-	"/",
-	passport.authenticate("jwt", { session: false }),
+	"/new",
+	// passport.authenticate("jwt", { session: false }),
 	(req, res) => {
-		const { errors, isValid } = validateRestaurantInput(req.body);
-		if (!isValid) {
-			return res.status(400).json(errors);
-		}
-
-		const newRestaurant = new Restaurant({
-			name: req.body.name,
-			food: req.body.food, //should we keep this here? or expand on it with empty strings?
-			priceRange: req.body.priceRange,
-			location: req.body.location,
-			// photoUrl: req.body.food.photoUrl,
-			// description: req.body.food.description,
-			// restaurantId: req.body.food.restaurantId,
-			// price: req.body.food.price,
-			// priceRange: req.body.priceRange
-			// add these qualities in some kind of update function...
+		upload(req, res, err => {
+			if (err) {
+				res.status(400).send("Could not reach AWS S3")
+			} else {
+				const newRestaurant = new Restaurant({
+					name: req.body.name,
+					priceRange: req.body.priceRange,
+					photo: req.file.location,
+					location: req.body.location
+				});
+				newRestaurant.save().then(restaurant => res.json(restaurant));
+			}
 		});
-
-		newRestaurant.save().then(restaurant => res.json(restaurant));
 	}
 );
+
+
+
+
 
 // posting photos w/ restaurant ID
 router.patch(
