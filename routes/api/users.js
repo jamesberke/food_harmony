@@ -19,20 +19,19 @@ router.post("/register", (req, res) => {
 	}
 
 	//confirm we don't already have this email
-	User.findOne({ email: req.body.email }).then(user => {
+	User.findOne({ email: req.body.email }).then((user) => {
 		if (user) {
 			return res.status(400).json({
 				email: "A user has already registered with this address",
 			});
 		} else {
-			
 			const newUser = new User({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				email: req.body.email,
 				password: req.body.password,
-				location: req.body.location, 
-				
+				location: req.body.location,
+
 				/*Expected format is geoJSON:
 				
 				req.body.location = 
@@ -48,7 +47,7 @@ router.post("/register", (req, res) => {
 					newUser.password = hash;
 					newUser
 						.save()
-						.then(user => {
+						.then((user) => {
 							const payload = {
 								id: user.id,
 								handle: user.handle,
@@ -62,11 +61,17 @@ router.post("/register", (req, res) => {
 									res.json({
 										success: true,
 										token: "Bearer " + token,
+										user: {
+											firstName: user.firstName,
+											lastName: user.lastName,
+											email: user.email,
+											location: user.location.coordinates,
+										},
 									});
 								}
 							);
 						})
-						.catch(err => console.log(err));
+						.catch((err) => console.log(err));
 				});
 			});
 		}
@@ -83,12 +88,12 @@ router.post("/login", (req, res) => {
 		return res.status(400).json(errors);
 	}
 
-	User.findOne({ email }).then(user => {
+	User.findOne({ email }).then((user) => {
 		if (!user) {
 			return res.status(404).json({ email: "This user does not exist" });
 		}
 
-		bcrypt.compare(password, user.password).then(isMatch => {
+		bcrypt.compare(password, user.password).then((isMatch) => {
 			if (isMatch) {
 				const payload = { id: user.id, handle: user.handle };
 
@@ -104,8 +109,8 @@ router.post("/login", (req, res) => {
 								firstName: user.firstName,
 								lastName: user.lastName,
 								email: user.email,
-								location: user.location.coordinates
-							}
+								location: user.location.coordinates,
+							},
 						});
 					}
 				);

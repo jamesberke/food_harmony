@@ -101,7 +101,7 @@ const upload = multer({
 		contentType: multerS3.AUTO_CONTENT_TYPE,
 		bucket: keys.AWS_BUCKET_NAME,
 		key: function(req, file, cb) {
-			console.log(file);
+			
 			cb(null, Date.now().toString());
 			//cb(null, file.originalname); //use cb(null, Date.now().toString()) for unique file keys
 		},

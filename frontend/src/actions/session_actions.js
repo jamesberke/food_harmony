@@ -30,7 +30,8 @@ export const signup = user => dispatch => {
 				localStorage.setItem("jwtToken", token);
 				SessionAPIUtil.setAuthToken(token);
 				const decoded = jwt_decode(token);
-				dispatch(receiveCurrentUser(decoded));
+				let user = {...res.data.user, ...decoded}
+				dispatch(receiveCurrentUser(user));
 				dispatch(closeModal())
 			});
 		},
@@ -45,9 +46,7 @@ export const login = user => dispatch => {
 			localStorage.setItem("jwtToken", token);
 			SessionAPIUtil.setAuthToken(token);
 			const decoded = jwt_decode(token);
-			
 			let user = {...res.data.user, ...decoded}
-
 			dispatch(receiveCurrentUser(user));
 			dispatch(closeModal())
 		})
