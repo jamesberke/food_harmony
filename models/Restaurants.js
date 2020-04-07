@@ -12,7 +12,7 @@ const RestaurantSchema = new Schema({
 		type: [Food.Schema],
 	},
 	priceRange: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	date: {
@@ -22,8 +22,13 @@ const RestaurantSchema = new Schema({
 
 	location: {
 		type: pointSchema,
-		required: true,
+		// required: true,
 	},
+
+	photo: {
+		type: String
+	}
+
 });
 
 module.exports = Restaurant = mongoose.model("Restaurant", RestaurantSchema);

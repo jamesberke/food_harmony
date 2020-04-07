@@ -19,6 +19,7 @@ class SignupForm extends React.Component {
 	}
 
 	componentDidMount() {
+
 		const setDefaultLocation = () => {
 			this.setState({
 				location: {
