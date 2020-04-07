@@ -12,7 +12,7 @@ const RestaurantSchema = new Schema({
 		type: [Food.Schema],
 	},
 	priceRange: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	date: {
