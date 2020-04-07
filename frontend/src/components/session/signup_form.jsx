@@ -19,7 +19,6 @@ class SignupForm extends React.Component {
 	}
 
 	componentDidMount() {
-
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(position => {
 				this.setState({
