@@ -1,5 +1,5 @@
 /node_modules
-/config/
+/config/keys_deve.js
 package-lock.json
 /frontend/package-lock.json
 /frontend/node_modules
