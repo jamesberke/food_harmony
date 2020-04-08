@@ -33,7 +33,7 @@ class NavBar extends React.Component {
 									this.props.openModal("loginUser")
 								}
 							>
-								LOG IN
+								SIGN IN
 							</button>
 							<button
 								className="navbar-signup"
