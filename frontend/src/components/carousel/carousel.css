@@ -69,6 +69,8 @@ https://flickity.metafizzy.co
   .flickity-button:hover {
 	background: white;
 	cursor: pointer;
+	transform: translateY(-50%);
+
   }
   
   .flickity-button:focus {
@@ -94,7 +96,7 @@ https://flickity.metafizzy.co
   /* ---- previous/next buttons ---- */
   
   .flickity-prev-next-button {
-	top: 50%;
+	top: 45%;
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
