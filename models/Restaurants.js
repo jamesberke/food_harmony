@@ -26,10 +26,12 @@ const RestaurantSchema = new Schema({
 	phoneNumber: {
 		type: String
 	},
+	// format: "12683 Van Ness Ave."
 	streetAddress: {
 		type: String
 	},
-	// cityAddress reffers to the City, State, and Zipcode (second line of the full address)
+	// cityAddress reffers to the City, State, and Zipcode
+	// format: "San Francisco, CA 94112"
 	cityAddress: {
 		type: String
 	}

@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import RestaurantShow from './restaurant_show';
 
+// need to grab the restaurant info and pass it through to props as pickedRestaurant 
+// to render in the RestaurantShow modal
+
 const mapStateToProps = state => {
     debugger;
     return ({
@@ -8,8 +11,6 @@ const mapStateToProps = state => {
     });
 };
 
-const mapDispatchToProps = dispatch => ({
+// No mapDispatchToProps needed 
 
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantShow)
+export default connect(mapStateToProps)(RestaurantShow)
