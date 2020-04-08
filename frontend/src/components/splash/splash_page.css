@@ -5,7 +5,7 @@
 	top: 70px;
 	display: flex;
 	justify-content: center;
-	align-items:  center;
+	align-items: center;
 	flex-direction: column;
 }
 
@@ -18,19 +18,19 @@
 .splash-1-header {
 	position: absolute;
 	top: 15%;
-	display:flex;
-	justify-content:center;
-	align-items:  center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
 }
 
 .splash-1-title {
-	
 	color: white;
 	font-family: sans-serif;
 	font-size: 3rem;
 	font-weight: bold;
 	background-color: rgba(0, 0, 0, 0.52);
+	border-radius: 5px;
 }
 
 .carousel-header-text {
@@ -49,15 +49,28 @@
 .splash-1-text {
 	color: white;
 	font-family: sans-serif;
-	font-size: 1rem;
+	font-size: 1.25rem;
+	margin-top:.5rem;
 	margin-left: 4px;
-	background-color: rgba(0, 0, 0, 0.52);
-	/* margin-top:.5em; */
+	background-color: rgba(0, 0, 0, 0.26);
+	border-radius: 3px;
 }
 
-button {
-	width: 30em;
-	background-color: green;
-	height: 100%;
+.splash-1-button{
+	font-size: 14px;
+	width: 11em;
+	background-color: rgba(255, 187, 0, 0.883);
+	height: 3em;
+	color: rgba(255, 0, 0, 0.95);
+	/* color: #3b9915; */
+	margin: 1em;
+	font-weight: 800;
+	text-transform: uppercase;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
 
+button:hover {
+	transform: scale(1.05);
 }

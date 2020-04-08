@@ -21,7 +21,10 @@ class SplashPage extends React.Component {
 							We help provide a simple and elegant solution to
 							quickly find your next meal.
 						</div>
-
+						<div>
+							<button className="splash-1-button" onClick={() => this.props.openModal("loginUser")}>Log In</button>
+							<button className="splash-1-button" onClick={() => this.props.openModal("signupUser")}>Get Started</button>
+						</div>
 					</div>
 					<div className="carousel-title-container">
 						<div className="splash-1-title carousel-header-text">
