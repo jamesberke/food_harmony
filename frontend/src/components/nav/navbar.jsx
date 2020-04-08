@@ -13,12 +13,7 @@ class NavBar extends React.Component {
 			<div className="navbar-container">
 				<div className="navbar-left">
 					<img src={logo} className="nav-logo" />
-					<div className="navbar-logo-main">FoodHarmony</div>
-					<input
-						className="navbar-search"
-						type="text"
-						value="SEARCH..."
-					/>
+					<div className="navbar-logo-main">FoodHarmony</div>				
 				</div>
 				<div className="navbar-right">
 					{this.props.isAuthenticated ? (
