@@ -19,11 +19,20 @@ const RestaurantSchema = new Schema({
 		type: Date,
 		default: Date.now,
 	},
-
 	location: {
 		type: pointSchema,
 		required: true,
 	},
+	phoneNumber: {
+		type: String
+	},
+	streetAddress: {
+		type: String
+	},
+	// cityAddress reffers to the City, State, and Zipcode (second line of the full address)
+	cityAddress: {
+		type: String
+	}
 });
 
 module.exports = Restaurant = mongoose.model("Restaurant", RestaurantSchema);
