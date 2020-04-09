@@ -44,8 +44,8 @@ class FoodIndex extends React.Component {
 			);
 		}
 
-		let foodItems = this.state.foods.map(food => {
-			return <FoodIndexItem food={food} openModal={this.props.openModal} />;
+		let foodItems = this.state.foods.map((food, idx) => {
+			return <FoodIndexItem food={food} openModal={this.props.openModal} key={idx} />;
 		});
 		return (
 			<div className="splash-container">
