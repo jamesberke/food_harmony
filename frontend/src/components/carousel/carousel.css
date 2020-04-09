@@ -3,16 +3,18 @@ https://flickity.metafizzy.co
 ---------------------------------------------- */
 .carousel {
 	height: auto;
-	overflow-x:hidden;
-	overflow-y: visible;
-	width:100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: 60%;
 	margin: auto;
 	display: block;
+	height: 380px;
 }
 
 .carousel-image {
-	height: 300px;
-    min-width: 400px;
+	height: 100%;
+	min-width: 400px;
+	border-right: solid 3px white;
 }
 
 .flickity-enabled {
@@ -134,7 +136,7 @@ https://flickity.metafizzy.co
 	position: static;
 	width: 100%;
 	padding: 0;
-	margin: 1em;
+	margin: 1rem;
 	list-style: none;
 	text-align: center;
 	line-height: 1;

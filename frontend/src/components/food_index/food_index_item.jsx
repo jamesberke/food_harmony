@@ -21,11 +21,11 @@ class FoodIndexItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.demoFoods = [bbq, burger, dumplings, pasta, pizza, sushi, tacos];
-
+		this.pickRestaurant = this.pickRestaurant.bind(this);
 	}
 
 	priceCategory(price) {
-		if(price > 0 && price < 15) {
+		if (price > 0 && price < 15) {
 			return 1
 		} else if (price >= 15 && price < 50) {
 			return 2
@@ -34,14 +34,29 @@ class FoodIndexItem extends React.Component {
 		}
 	}
 
+	pickRestaurant() {
+		const restaurant = {
+			name: this.props.food.restaurantName,
+			priceRange: this.props.food.restaurantPriceRange,
+			phoneNumber: this.props.food.restaurantPhoneNumber,
+			streetAddress: this.props.food.restaurantStreetAddress,
+			cityAddress: this.props.food.restaurantCityAddress,
+			webLink: this.props.food.restaurantWebLink,
+			photo: this.props.food.restaurantPhoto
+		};
+
+		this.props.openModal({ type: "restaurantShow", data: restaurant });
+	}
+
 	render() {
 		let priceRange = []
-		for(let i = 0; i < this.priceCategory(this.props.food.price); i++) {
+		for (let i = 0; i < this.priceCategory(this.props.food.price); i++) {
 			priceRange.push("$")
 		}
 		let i = Math.floor(Math.random() * this.demoFoods.length);
 		return (
-			<div className="food-index-item">
+			<div className="food-index-item"
+				onClick={this.pickRestaurant}>
 				<div className="overlay">
 					<div className="overlay-content-container">
 						<div className="overlay-title">
@@ -52,7 +67,7 @@ class FoodIndexItem extends React.Component {
 							<i>{this.props.food.restaurantName}</i>
 						</div>
 						<div className="overlay-rating-info">
-							
+
 							<Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} />
 						</div>
 						<div className="overlay-details">
@@ -65,14 +80,14 @@ class FoodIndexItem extends React.Component {
 									<Icon icon={locationArrow} />
 								</span> */}
 								<span className="overlay-details-item-3-text">
-									{(this.props.food.distance/1000).toFixed(1)} km
+									{(this.props.food.distance / 1000).toFixed(1)} km
 								</span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<img src={this.demoFoods[i]} />
-			</div>
+			</div >
 		);
 	}
 }

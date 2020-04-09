@@ -26,7 +26,7 @@ const RestaurantSchema = new Schema({
 	phoneNumber: {
 		type: String
 	},
-	// format: "12683 Van Ness Ave."
+	// format: "12683 Ocean Ave."
 	streetAddress: {
 		type: String
 	},
@@ -34,7 +34,10 @@ const RestaurantSchema = new Schema({
 	// format: "San Francisco, CA 94112"
 	cityAddress: {
 		type: String
-	}
+	},
+	webLink: {
+		type: String
+	},
 	photo: {
 		type: String
 	}

@@ -13,24 +13,28 @@ class NavBar extends React.Component {
 			<div className="navbar-container">
 				<div className="navbar-left">
 					<img src={logo} className="nav-logo" />
-					<div className="navbar-logo-main">FoodHarmony</div>				
+					<div className="navbar-logo-main">FoodHarmony</div>
 				</div>
 				<div className="navbar-right">
+					<Link to="/about" className="navbar-about-link">
+						ABOUT US
+					</Link>
 					{this.props.isAuthenticated ? (
-							<button
+						<button
 							className="navbar-login"
 							onClick={() => {
-								 this.props.logout()}
+								this.props.logout()
+							}
 							}
 						>
 							LOG OUT
 						</button>
 					) : (
-						<>
+							<>
 							<button
 								className="navbar-login"
 								onClick={() =>
-									this.props.openModal("loginUser")
+									this.props.openModal({ type: "loginUser" })
 								}
 							>
 								SIGN IN
@@ -38,13 +42,13 @@ class NavBar extends React.Component {
 							<button
 								className="navbar-signup"
 								onClick={() =>
-									this.props.openModal("signupUser")
+									this.props.openModal({ type: "signupUser" })
 								}
 							>
 								GET STARTED
 							</button>
-						</>
-					)}
+							</>
+						)}
 				</div>
 			</div>
 		);
