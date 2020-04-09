@@ -63,7 +63,7 @@ class SplashPage extends React.Component {
 					<div className="footer">
 						<img src={logo} className="footer-logo" />
 						<div className="footer-text">
-							The better way to find a meal
+							Revolutionize how you find new food
 						</div>
 						<div className="footer-buttons">
 							<button className="footer-button">Get Started</button>

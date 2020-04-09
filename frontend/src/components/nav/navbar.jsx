@@ -16,6 +16,9 @@ class NavBar extends React.Component {
 					<div className="navbar-logo-main">FoodHarmony</div>				
 				</div>
 				<div className="navbar-right">
+					<Link to="/about" className="navbar-about-link">
+						ABOUT US
+					</Link>
 					{this.props.isAuthenticated ? (
 							<button
 							className="navbar-login"

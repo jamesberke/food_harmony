@@ -12,14 +12,14 @@
 
 .navbar-left {
     display: flex;
-    width: 75%;
+    width: 60%;
     align-items: center;
     justify-content: flex-start;
 }
 
 .navbar-right {
     display: flex;
-    width: 25%;
+    width: 40%;
     align-items: center;
     justify-content: flex-end;
 }
@@ -35,7 +35,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar-search {
+.navbar-about-link {
+    text-decoration: none;
+    margin-right: 1rem;
+    color: #FF8300;
+    font-size: 13px;
+}
+
+/* .navbar-search {
     margin-left: 6%;
     width: 46%;
     height: 24px;
@@ -46,7 +53,7 @@
     font-size: 14px;
     color: #000045;
     opacity: 0.7;
-}
+} */
 
 .navbar-login {
     color: #3b9915;
