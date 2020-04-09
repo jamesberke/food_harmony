@@ -13,7 +13,7 @@ const flickityOptions = {
 	initialIndex: 3,
 	freeScroll: true,
 	wrapAround: true,
-	autoPlay: 1000,
+	autoPlay: 3000,
 	contain: true,
 	// prevNextButtons: false,
 // pageDots: false

@@ -26,7 +26,7 @@ const RestaurantSchema = new Schema({
 	phoneNumber: {
 		type: String
 	},
-	// format: "12683 Van Ness Ave."
+	// format: "12683 Ocean Ave."
 	streetAddress: {
 		type: String
 	},

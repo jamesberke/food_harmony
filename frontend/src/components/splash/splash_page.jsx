@@ -28,15 +28,42 @@ class SplashPage extends React.Component {
 					</div>
 					<div className="carousel-title-container">
 						<div className="splash-1-title carousel-header-text">
-							Find great options near you...
+							Find great options near you.
+						</div>
+						<div className="carousel-header-text description">
+							Enjoy a curated image gallery menu of local quizine and healthy eats! 
 						</div>
 					</div>
 					<Carousel />
+					<div className="splash-2">
+						<div className="splash-2-col">
+							<h3 className="splash-col-title">Conversations, organized</h3>
+							<div className="splash-col-content">
+								Instead of a single overstuffed inbox, conversations in Slack
+								happen in dedicated spaces called channels.
+        				</div>
+						</div>
+						<div className="splash-2-col">
+							<h3 className="splash-col-title">Get looped in, not out</h3>
+							<div className="splash-col-content">
+								Slack makes it simple to follow conversations or find
+								important information in an easily searchable archive.
+        				</div>
+						</div>
+						<div className="splash-2-col">
+							<h3 className="splash-col-title">Give focus a chance</h3>
+							<div className="splash-col-content">
+								Unlike email, Slack lets you choose which conversations are
+								most important — and which can wait.
+        				</div>
+						</div>
+					</div>
 				</div>
-				<div className="splash-2"></div>
 			</div>
 		);
 	}
 }
 
 export default SplashPage;
+
+

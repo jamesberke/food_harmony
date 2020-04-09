@@ -22,6 +22,9 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	background-color: rgba(0, 0, 0, 0.42);
+	padding: 1rem;
+	border-radius: 1rem;
 }
 
 .splash-1-title {
@@ -29,7 +32,6 @@
 	font-family: sans-serif;
 	font-size: 3rem;
 	font-weight: bold;
-	background-color: rgba(0, 0, 0, 0.52);
 	border-radius: 5px;
 }
 
@@ -37,13 +39,20 @@
 	font-size: 2.5rem;
 	color: black;
 	background-color: unset;
+	margin-bottom: 1rem;
+}
+
+.description {
+	font-family: sans-serif;
+	font-size: 1rem;
 }
 
 .carousel-title-container {
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	margin-top: 2.5rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 }
 
 .splash-1-text {
@@ -52,7 +61,6 @@
 	font-size: 1.25rem;
 	margin-top:.5rem;
 	margin-left: 4px;
-	background-color: rgba(0, 0, 0, 0.26);
 	border-radius: 3px;
 }
 
@@ -61,7 +69,7 @@
 	width: 11em;
 	background-color: rgba(255, 187, 0, 0.883);
 	height: 3em;
-	color: rgba(255, 0, 0, 0.95);
+	color: white;
 	/* color: #3b9915; */
 	margin: 1em;
 	font-weight: 800;
@@ -73,4 +81,28 @@
 
 button:hover {
 	transform: scale(1.05);
+}
+
+.splash-2 {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: sans-serif;
+}
+
+.splash-2-col {
+    padding-top: .5rem;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 3rem;
+}
+
+.splash-col-title {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.splash-col-content {
+    font-size: 1.1rem;
 }
