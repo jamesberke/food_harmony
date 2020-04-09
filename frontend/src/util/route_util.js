@@ -2,24 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const Auth = ({ component: Component, path, loggedIn, exact }) => (
+const Auth = ({ component: Component, path, loggedIn, exact, redirect = "/" }) => (
     <Route path={ path } exact={ exact } render={props => (
         !loggedIn ? (
             <Component {...props} />
         ) : (
-            <Redirect to='/home' />
-        )       
+			<Redirect to={redirect} />
+			)       
     )} />
 );
 
-const Protected = ({ component: Component, loggedIn, ...rest}) => (
+const Protected = ({ component: Component, loggedIn, redirect = "/",...rest}) => (
     <Route
         {...rest}
         render= {props =>
             loggedIn? (
                 <Component {...props} />
             ) : (
-                <Redirect to='/login' />
+                <Redirect to={redirect} />
             )
         } 
     />

@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
+app.use(cors());
+
 const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -34,5 +37,7 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 app.use("/api/restaurants", restaurants);
 app.use("/api/foods", foods);
+
+// 
 
 

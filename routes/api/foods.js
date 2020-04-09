@@ -8,11 +8,10 @@ const passport = require("passport");
 const Food = require("../../models/Food");
 const Restaurant = require("../../models/Restaurants");
 // const validateRestaurantInput = require("../../validation/restaurants");
-
 AWS.config.update({
 	secretAccessKey: keys.AWS_SECRET_KEY_ID,
 	accessKeyId: keys.AWS_ACCESS_KEY_ID,
-	region: keys.AWS_REGION,
+	region: keys.AWS_REGION
 });
 
 const s3 = new AWS.S3();
@@ -29,7 +28,7 @@ router.post(
 			description: req.body.description,
 			price: req.body.price,
 			location: req.body.location,
-			restaurantId: req.body.restaurantId,
+			restaurantId: req.body.restaurantId
 		});
 
 		try {
@@ -37,8 +36,8 @@ router.post(
 				req.body.restaurantId,
 				{
 					$push: {
-						foods: newFood,
-					},
+						foods: newFood
+					}
 				},
 				{ new: true }
 			);
@@ -52,7 +51,8 @@ router.post(
 
 //Find for foods is actually being done as a restaurant search, where we performa geo search on
 //restaurants collection based on the location and then extract the foods from them.
-router.get("/find", async (req, res) => {
+router.post("/find", async (req, res) => {
+
 	const geoOptions = {
 		distanceField: "distance.calculated",
 		spherical: true,
@@ -67,10 +67,10 @@ router.get("/find", async (req, res) => {
 			{
 				$geoNear: {
 					near: req.body.location,
-					...geoOptions,
-				},
+					...geoOptions
+				}
 			},
-			{ $match: { foods: { $ne: null } } },
+			{ $match: { foods: { $ne: null } } }
 		]);
 
 		let foodResults = [];
@@ -80,11 +80,15 @@ router.get("/find", async (req, res) => {
 				for (let j = 0; j < results[i].foods.length; j++) {
 					results[i].foods[j].restaurantId = restaurantId;
 					results[i].foods[j].restaurantName = results[i].name;
-					results[i].foods[j].location =
-						results[i].location.coordinates;
-					results[i].foods[j].distance = results[
-						i
-					].distance.calculated.toFixed();
+					results[i].foods[j].location = results[i].location.coordinates;
+					results[i].foods[j].restaurantPriceRange = results[i].priceRange;
+					results[i].foods[j].restaurantPhoneNumber = results[i].phoneNumber;
+					results[i].foods[j].restaurantStreetAddress = results[i].streetAddress;
+					results[i].foods[j].restaurantCityAddress = results[i].cityAddress;
+					results[i].foods[j].restaurantWebLink = results[i].webLink;
+					results[i].foods[j].restaurantPhoto = results[i].photo;
+					results[i].foods[j].distance = results[i]
+						.distance.calculated.toFixed();
 					foodResults.push(results[i].foods[j]);
 				}
 			}
@@ -100,8 +104,8 @@ const upload = multer({
 		s3: s3,
 		contentType: multerS3.AUTO_CONTENT_TYPE,
 		bucket: keys.AWS_BUCKET_NAME,
-		key: function(req, file, cb) {
-			console.log(file);
+		key: function (req, file, cb) {
+
 			cb(null, Date.now().toString());
 			//cb(null, file.originalname); //use cb(null, Date.now().toString()) for unique file keys
 		},
@@ -123,15 +127,15 @@ router.post(
 					description: req.body.description,
 					price: req.body.price,
 					location: req.body.location,
-					restaurantId: req.body.restaurantId,
+					restaurantId: req.body.restaurantId
 				});
 
 				const restaurant = Restaurant.findByIdAndUpdate(
 					req.body.restaurantId,
 					{
 						$push: {
-							foods: newFood,
-						},
+							foods: newFood
+						}
 					},
 					{ new: true }
 				).exec();
