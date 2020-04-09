@@ -1,47 +1,71 @@
 import React from "react";
 import "./signup_form.css";
-import {Redirect} from "react-router-dom"
+import { Redirect } from "react-router-dom";
 
 class SignupForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = props.user;
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+		this.demoUserSubmit = this.demoUserSubmit.bind(this);
+	};
 
 	update(field) {
-		return event => this.setState({ [field]: event.target.value });
-	}
+		return (event) => this.setState({ [field]: event.target.value });
+	};
 
 	handleSubmit(e) {
-		e.preventDefault()
+		e.preventDefault();
 		this.props.signup(this.state);
-	}
+	};
+
+	demoUserSubmit() {
+		this.props.login({
+			email: "demo@foodharmony.com",
+			password: "pleasehireus"
+		});
+		this.props.closeModal();
+	};
 
 	componentDidMount() {
 
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(position => {
-				this.setState({
-					location: {
-						type: "Point",
-						coordinates: [position.coords.longitude, position.coords.latitude],
-					},
-				});
-			});
-		} else {
+		const setDefaultLocation = () => {
 			this.setState({
 				location: {
 					type: "Point",
-					coordinates: [37.773972, -122.431297], //default location to San Francisco, CA
+					//coordinates: [37.773972, -122.431297], //default location to San Francisco, CA
+					coordinates: [-121.93628160000002, 37.5455744],
 				},
 			});
+		};
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					this.setState({
+						location: {
+							type: "Point",
+							coordinates: [
+								position.coords.longitude,
+								position.coords.latitude,
+							],
+						},
+					});
+				},
+				(error) => {
+					//they have geolocation on their browser, but denied access
+					setDefaultLocation();
+				}
+			);
+		} else {
+			//they don't have geolocation on their browser
+			setDefaultLocation();
 		}
-	}
+	};
 
 	render() {
-		if(this.props.isAuthenticated) {
-			return (<Redirect to={'/index'} />)
+		if (this.props.isAuthenticated) {
+			return <Redirect to={"/index"} />;
 		}
 
 		return (
@@ -111,7 +135,7 @@ class SignupForm extends React.Component {
 				</form>
 			</div>
 		);
-	}
-}
+	};
+};
 
 export default SignupForm;

@@ -5,8 +5,9 @@ import './login_form.css'
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-	this.state = props.user;
-	this.handleSubmit = this.handleSubmit.bind(this);
+	  this.state = props.user;
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUserSubmit = this.demoUserSubmit.bind(this);
   }
 
   update(field) {
@@ -17,6 +18,14 @@ class LoginForm extends React.Component {
 	e.preventDefault();
     this.props.login(this.state);
   }
+
+  demoUserSubmit() {
+    this.props.login({
+      email: "demo@foodharmony.com",
+      password: "pleasehireus"
+    });
+    this.props.closeModal();
+  };
 
   render() {
 
@@ -41,7 +50,7 @@ class LoginForm extends React.Component {
             value={this.state.email}
             className="login-form-input"
             onChange={this.update("email")}
-            placeholder="JohnDoe13"
+            placeholder="Email"
           />
           {/* <i className="fas fa-lock two"></i> */}
           <input

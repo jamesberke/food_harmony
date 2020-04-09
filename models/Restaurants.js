@@ -12,7 +12,7 @@ const RestaurantSchema = new Schema({
 		type: [Food.Schema],
 	},
 	priceRange: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	date: {
@@ -21,7 +21,7 @@ const RestaurantSchema = new Schema({
 	},
 	location: {
 		type: pointSchema,
-		required: true,
+		// required: true,
 	},
 	phoneNumber: {
 		type: String
@@ -33,6 +33,9 @@ const RestaurantSchema = new Schema({
 	// cityAddress reffers to the City, State, and Zipcode
 	// format: "San Francisco, CA 94112"
 	cityAddress: {
+		type: String
+	}
+	photo: {
 		type: String
 	}
 });
