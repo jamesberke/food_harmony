@@ -6,7 +6,19 @@ Food Harmony is a single page app designed to simplify how you choose what to ea
 
 ## Functionality and MVP's
 
+* User is greeted by a dynamic splash page showcasing delicious looking pictures and app
+mission statements.
+
+![Splash-main](screenshots/splash-main.png)
+
 * User Authentication : A new user can create a new account, sign in to an existing account, and log out. Their account will persist to the database to be accessed again later.
+
+![Login-modal](screenshots/login-modal.png)
+![Signup-modal](screenshots/signup-modal.png)
+
+* A carousel of food images is rendered on the splash page using the React Flickity component
+
+![Splash-carousel](screenshots/splash-carousel.png)
 
 * User Profile and associated data : A user will have a profile to display information about themselves as well as be able to look at a page of favorited images and restaurants.
 
@@ -27,6 +39,42 @@ Food Harmony will be built using the popular MERN stack. This stands for MongoDB
 * React / Redux : The visual part of the app. React is great for building compartmentalized and organized web structures. We also use react to continuously update the UI without having to re-render the whole page which can save tons of time on loading. This is very useful for an image heavy app that exists mainly to transfer and curate data.
 
 * Node : allows us to work in JavaScript on our local machines. Without node we would not be able to write our back end database and routes with javascript.
+
+* React-Flickity-Component : this components allows us to dynamically display and flip through pictures saving space on our splash page and adding another dynamic element. It is 
+simple enough to create but styling took some effort.
+
+```
+const flickityOptions = {
+	initialIndex: 3,
+	freeScroll: true,
+	wrapAround: true,
+	autoPlay: 3000,
+	contain: true
+};
+
+function Carousel() {
+	return (
+		<Flickity
+			className={"carousel"}
+			elementType="section"
+			options={flickityOptions}
+			disableImagesLoaded={false}
+			reloadOnUpdate
+			static
+		>
+			<img src={bbq} className="carousel-image" />
+			<img src={burger} className="carousel-image" />
+			<img src={dumplings} className="carousel-image" />
+			<img src={pasta} className="carousel-image" />
+			<img src={pizza} className="carousel-image" />
+			<img src={sushi} className="carousel-image" />
+			<img src={tacos} className="carousel-image" />
+		</Flickity>
+	);
+}
+
+export default Carousel;
+```
 
 The main challenges facing us as a group is figuring out the best way to use the APIs we need and how to format that data as it comes in. 
 
