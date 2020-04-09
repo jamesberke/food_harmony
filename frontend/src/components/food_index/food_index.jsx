@@ -10,21 +10,21 @@ class FoodIndex extends React.Component {
 	}
 
 	async componentDidMount() {
-		// let userLocationinfo = {
-		// 	location: {
-		// 		type: "Point",
-		// 		coordinates: [-73.856077, 40.848447],
-		// 	},
-		// 	distance: 10000,
-		// };
-
 		let userLocationinfo = {
 			location: {
 				type: "Point",
-				coordinates: this.props.user.location,
+				coordinates: [-73.856077, 40.848447],
 			},
 			distance: 10000,
 		};
+
+		// let userLocationinfo = {
+		// 	location: {
+		// 		type: "Point",
+		// 		coordinates: this.props.user.location,
+		// 	},
+		// 	distance: 10000,
+		// };
 
 		try {
 			let resp = await DataUtil.fetchFoods(userLocationinfo);
@@ -45,7 +45,7 @@ class FoodIndex extends React.Component {
 		}
 
 		let foodItems = this.state.foods.map(food => {
-			return <FoodIndexItem food={food} />;
+			return <FoodIndexItem food={food} openModal={this.props.openModal} />;
 		});
 		return (
 			<div className="splash-container">

@@ -24,8 +24,8 @@ class SplashPage extends React.Component {
 							quickly find your next meal.
 						</div>
 						<div>
-							<button className="splash-1-button" onClick={() => this.props.openModal("loginUser")}>Sign In</button>
-							<button className="splash-1-button" onClick={() => this.props.openModal("signupUser")}>Get Started</button>
+							<button className="splash-1-button" onClick={() => this.props.openModal({ type: "loginUser" })}>Sign In</button>
+							<button className="splash-1-button" onClick={() => this.props.openModal({ type: "signupUser" })}>Get Started</button>
 						</div>
 					</div>
 					<div className="carousel-title-container">
@@ -33,7 +33,7 @@ class SplashPage extends React.Component {
 							Find great options near you.
 						</div>
 						<div className="carousel-header-text description">
-							Enjoy a curated image gallery menu of local quizine and healthy eats! 
+							Enjoy a curated image gallery menu of local quizine and healthy eats!
 						</div>
 					</div>
 					<Carousel />
