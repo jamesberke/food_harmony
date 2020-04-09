@@ -57,8 +57,7 @@ class FoodIndexItem extends React.Component {
 						</div>
 						<div className="overlay-details">
 							<div className="overlay-details-item-1">
-								
-							{priceRange.join(" ")}
+								{priceRange.join(" ")}
 							</div>
 							<div className="overlay-details-item-2"></div>
 							<div className="overlay-details-item-3">
