@@ -48,9 +48,11 @@ class RestaurantShow extends React.Component {
                     <div className="restaurant-phone-number">
                         {this.props.pickedRestaurant.phoneNumber}
                     </div>
-                    <div className="restaurant-web-link">
-                        {this.props.pickedRestaurant.webLink}
-                    </div>
+                    <a href={this.props.pickedRestaurant.webLink}
+                        className='restaurant-web-link'
+                        target="_blank">
+                            {this.props.pickedRestaurant.webLink}
+                    </a>
                     {this.parseAddress()}
                 </div>
             </div>
