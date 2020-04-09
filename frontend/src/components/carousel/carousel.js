@@ -14,11 +14,7 @@ const flickityOptions = {
 	freeScroll: true,
 	wrapAround: true,
 	autoPlay: 3000,
-	contain: true,
-	// prevNextButtons: false,
-// pageDots: false
-
-
+	contain: true
 };
 
 function Carousel() {

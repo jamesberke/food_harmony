@@ -39,7 +39,7 @@
     margin-left: 6%;
     width: 46%;
     height: 24px;
-    background-color: whitesmoke;
+    background-color: white;
     border: solid 1px #000045;
     border-radius: 5px;
     padding-left: 20px;
@@ -54,7 +54,7 @@
     background-color: inherit;
     border: none;
     outline: none;
-    margin-right: 16px;
+    margin-right: 1rem;
 }
 
 .navbar-login:hover {
@@ -66,9 +66,11 @@
     color: #3b9915;
     font-size: 14px;
     background-color: inherit;
-    border: none;
+    border: solid 1px #3b9915;
+    border-radius: 5px;
     outline: none;
     margin-right: 8%;
+    padding: 0.6rem 0.8rem;
 }
 
 .navbar-signup:hover {

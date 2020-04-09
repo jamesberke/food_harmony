@@ -35,6 +35,9 @@ const RestaurantSchema = new Schema({
 	cityAddress: {
 		type: String
 	},
+	webLink: {
+		type: String
+	},
 	photo: {
 		type: String
 	}

@@ -1,6 +1,8 @@
 import React from "react";
 import background from "./splash-background.jpg";
 import Carousel from "../carousel/carousel";
+import logo from '../nav/foodharmony-logo-2.png';
+import { Link } from 'react-router-dom';
 import "./splash_page.css";
 
 class SplashPage extends React.Component {
@@ -37,25 +39,35 @@ class SplashPage extends React.Component {
 					<Carousel />
 					<div className="splash-2">
 						<div className="splash-2-col">
-							<h3 className="splash-col-title">Conversations, organized</h3>
+							<h3 className="splash-col-title">Easy set up</h3>
 							<div className="splash-col-content">
-								Instead of a single overstuffed inbox, conversations in Slack
-								happen in dedicated spaces called channels.
-        				</div>
+								Allow location services on sign up to grab your home base.
+								A vetted and currated list of meal items will light up your home page!
+        					</div>
 						</div>
 						<div className="splash-2-col">
-							<h3 className="splash-col-title">Get looped in, not out</h3>
+							<h3 className="splash-col-title">Find your perfect meal</h3>
 							<div className="splash-col-content">
-								Slack makes it simple to follow conversations or find
-								important information in an easily searchable archive.
-        				</div>
+								Enjoy an infinite scroll through pictures of local quizine
+								and healthy eats from your neighborhood.
+        					</div>
 						</div>
 						<div className="splash-2-col">
-							<h3 className="splash-col-title">Give focus a chance</h3>
+							<h3 className="splash-col-title">Go get your food!</h3>
 							<div className="splash-col-content">
-								Unlike email, Slack lets you choose which conversations are
-								most important — and which can wait.
-        				</div>
+								Click on a picture that looks good and discover a new local restaurant
+								displayed with title, phone number, and link to website.
+        					</div>
+						</div>
+					</div>
+					<div className="footer">
+						<img src={logo} className="footer-logo" />
+						<div className="footer-text">
+							The better way to find a meal
+						</div>
+						<div className="footer-buttons">
+							<button className="footer-button">Get Started</button>
+							<Link to="/about" className="footer-link">About Us</Link>
 						</div>
 					</div>
 				</div>
