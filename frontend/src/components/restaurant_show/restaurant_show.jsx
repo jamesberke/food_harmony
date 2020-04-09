@@ -50,7 +50,8 @@ class RestaurantShow extends React.Component {
                     </div>
                     <a href={this.props.pickedRestaurant.webLink}
                         className='restaurant-web-link'
-                        target="_blank">
+                        target="_blank"
+                        >
                             {this.props.pickedRestaurant.webLink}
                     </a>
                     {this.parseAddress()}
