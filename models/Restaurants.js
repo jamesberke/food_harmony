@@ -34,7 +34,7 @@ const RestaurantSchema = new Schema({
 	// format: "San Francisco, CA 94112"
 	cityAddress: {
 		type: String
-	}
+	},
 	photo: {
 		type: String
 	}
