@@ -81,9 +81,8 @@ router.post("/find", async (req, res) => {
           results[i].foods[j].restaurantId = restaurantId;
           results[i].foods[j].restaurantName = results[i].name;
           results[i].foods[j].location = results[i].location.coordinates;
-          results[i].foods[j].distance = results[
-            i
-          ].distance.calculated.toFixed();
+          results[i].foods[j].distance = results[i]
+            .distance.calculated.toFixed();
           foodResults.push(results[i].foods[j]);
         }
       }

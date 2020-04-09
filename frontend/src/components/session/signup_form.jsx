@@ -7,16 +7,25 @@ class SignupForm extends React.Component {
 		super(props);
 		this.state = props.user;
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+		this.demoUserSubmit = this.demoUserSubmit.bind(this);
+	};
 
 	update(field) {
 		return (event) => this.setState({ [field]: event.target.value });
-	}
+	};
 
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.signup(this.state);
-	}
+	};
+
+	demoUserSubmit() {
+		this.props.login({
+			email: "demo@foodharmony.com",
+			password: "pleasehireus"
+		});
+		this.props.closeModal();
+	};
 
 	componentDidMount() {
 
@@ -52,7 +61,7 @@ class SignupForm extends React.Component {
 			//they don't have geolocation on their browser
 			setDefaultLocation();
 		}
-	}
+	};
 
 	render() {
 		if (this.props.isAuthenticated) {
@@ -126,7 +135,7 @@ class SignupForm extends React.Component {
 				</form>
 			</div>
 		);
-	}
-}
+	};
+};
 
 export default SignupForm;
