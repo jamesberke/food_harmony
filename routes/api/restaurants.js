@@ -104,10 +104,7 @@ router.post(
 	"/new",
 	// passport.authenticate("jwt", { session: false }),
 	(req, res) => {
-		Promise.all([
-			uploadImage("photo", req, res),
-			//uploadImage("foodFile1", req, res),
-		])
+		uploadImage("photo", req, res)
 			.then((res) => {
 				console.log(req);
 				const newRestaurant = new Restaurant({

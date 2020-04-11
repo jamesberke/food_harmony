@@ -11,7 +11,7 @@ import newRestaurantForm from "../components/new_restaurant/new_restaurant"
 const App = () => (
     <div>
         <Modal />
-        {/* <NavBarContainer /> */}
+        <NavBarContainer />
         <Switch>
             <AuthRoute exact path="/" component={SplashPageContainer} redirect = '/index'/>
 			<ProtectedRoute exact path = "/index" component={FoodIndexContainer} redirect = '/'/>
