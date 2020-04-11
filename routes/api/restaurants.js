@@ -8,6 +8,7 @@ const multerS3 = require("multer-s3");
 const multer = require("multer");
 const keys = require("../../config/keys");
 const Restaurant = require("../../models/Restaurants");
+const Food = require("../../models/Food");
 
 AWS.config.update({
 	secretAccessKey: keys.AWS_SECRET_KEY_ID,
@@ -86,7 +87,7 @@ function uploadImage(key, req, res) {
 					cb(null, file.originalname); //names file original name
 				},
 			}),
-		}).single(key)(req, res, (err) => {
+		}).array(key)(req, res, (err) => {
 			if (err) {
 				//reject the promise
 				reject(err);
@@ -103,13 +104,16 @@ router.post(
 	"/new",
 	// passport.authenticate("jwt", { session: false }),
 	(req, res) => {
-
-		uploadImage("photo", req, res)
+		Promise.all([
+			uploadImage("photo", req, res),
+			//uploadImage("foodFile1", req, res),
+		])
 			.then((res) => {
+				console.log(req);
 				const newRestaurant = new Restaurant({
 					name: req.body.name,
 					priceRange: req.body.priceRange,
-					photo: req.file.location,
+					photo: req.files[0].location,
 					location: {
 						type: "Point",
 						coordinates: [
@@ -117,10 +121,23 @@ router.post(
 							req.body.location_lat,
 						],
 					},
+					foods: [
+						new Food({
+							photo: req.files[1].location,
+							description: req.body.foodDescription1,
+							price: req.body.foodPrice1,
+						}),
+						new Food({
+							photo: req.files[2].location,
+							description: req.body.foodDescription2,
+							price: req.body.foodPrice2,
+						}),
+					],
 				});
 				return newRestaurant.save();
 			})
-			.then((restaurant) => res.json(restaurant));
+			.then((restaurant) => res.json(restaurant))
+			.catch((err) => console.log(err));
 	}
 );
 
