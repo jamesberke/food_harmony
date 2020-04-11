@@ -9,16 +9,14 @@ const multer = require("multer");
 const keys = require("../../config/keys");
 const Restaurant = require("../../models/Restaurants");
 
-
 AWS.config.update({
-  secretAccessKey: keys.AWS_SECRET_KEY_ID,
-  accessKeyId: keys.AWS_ACCESS_KEY_ID,
-  region: keys.AWS_REGION
+	secretAccessKey: keys.AWS_SECRET_KEY_ID,
+	accessKeyId: keys.AWS_ACCESS_KEY_ID,
+	region: keys.AWS_REGION,
 });
 const s3 = new AWS.S3();
 
 router.get("/test", (req, res) => res.json({ msg: "successful test" }));
-
 
 module.exports = router;
 
@@ -46,7 +44,7 @@ router.get("/find", async (req, res) => {
 			},
 		]);
 
-		const restaurants = results.map(result => {
+		const restaurants = results.map((result) => {
 			/*
 				return a key-value pair with [id => {id:..., name...}, id => {id:..., name...}]
 			
@@ -77,46 +75,54 @@ router.get("/find", async (req, res) => {
 	}
 });
 
-
-
-const upload = multer({
-  storage: multerS3({
-    s3: s3,
-    contentType: multerS3.AUTO_CONTENT_TYPE,
-    bucket: keys.AWS_BUCKET_NAME,
-    key: function(req, file, cb) {
-      console.log(file);
-	  cb(null, file.originalname) //names file original name
-	//   cb(null, Date.now().toString()); //extra feature when ready
-    }
-  })
-}).single("picture");
-
+function uploadImage(key, req, res) {
+	return new Promise((resolve, reject) => {
+		multer({
+			storage: multerS3({
+				s3: s3,
+				contentType: multerS3.AUTO_CONTENT_TYPE,
+				bucket: keys.AWS_BUCKET_NAME,
+				key: function (req, file, cb) {
+					cb(null, file.originalname); //names file original name
+				},
+			}),
+		}).single(key)(req, res, (err) => {
+			if (err) {
+				//reject the promise
+				reject(err);
+			} else {
+				//resolve the promise
+				resolve(res);
+			}
+		});
+	});
+}
 
 // posting new restaurant
 router.post(
 	"/new",
 	// passport.authenticate("jwt", { session: false }),
 	(req, res) => {
-		upload(req, res, err => {
-			if (err) {
-				res.status(400).send("Could not reach AWS S3")
-			} else {
+
+		uploadImage("photo", req, res)
+			.then((res) => {
 				const newRestaurant = new Restaurant({
 					name: req.body.name,
 					priceRange: req.body.priceRange,
 					photo: req.file.location,
-					location: req.body.location
+					location: {
+						type: "Point",
+						coordinates: [
+							req.body.location_long,
+							req.body.location_lat,
+						],
+					},
 				});
-				newRestaurant.save().then(restaurant => res.json(restaurant));
-			}
-		});
+				return newRestaurant.save();
+			})
+			.then((restaurant) => res.json(restaurant));
 	}
 );
-
-
-
-
 
 // posting photos w/ restaurant ID
 router.patch(
