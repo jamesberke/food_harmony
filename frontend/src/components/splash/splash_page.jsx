@@ -66,7 +66,11 @@ class SplashPage extends React.Component {
 							Revolutionize how you find new food
 						</div>
 						<div className="footer-buttons">
-							<button className="footer-button">Get Started</button>
+							<button className="footer-button"
+								onClick={() => this.props.openModal({type: "signupUser"})}
+								>
+									Get Started
+							</button>
 							<Link to="/about" className="footer-link">About Us</Link>
 						</div>
 					</div>

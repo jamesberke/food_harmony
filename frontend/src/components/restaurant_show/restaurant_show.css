@@ -7,7 +7,7 @@
     height: 15rem;
     width: auto;
     margin: 2rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 .restaurant-info-container {
@@ -18,8 +18,10 @@
 }
 
 .restaurant-name {
-    font-size: 1.6rem;
-    margin: 1rem 0rem;
+    font-size: 1.8rem;
+    text-decoration: underline;
+    margin: 1rem;
+    margin-top: 1.7rem;
     width: 100%;
     color: #3b9915;
     font-weight: 600;
@@ -30,23 +32,37 @@
     font-weight: bold;
     color: #FF8300;
     margin-bottom: 0.8rem;
+    margin-left: 1rem;
+    width: 100%;
 }
 
 .restaurant-phone-number {
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
+    margin-left: 1rem;
     color: gray;
+    width: 100%;
 }
 
 .restaurant-web-link {
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
+    margin-left: 1rem;
     color: gray;
+    width: 100%;
+}
+
+.restaurant-web-link:hover {
+    text-decoration: underline;
+    color: black;
 }
 
 .restaurant-address {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin-left: 1rem;
+
 }
 
 .address-line-1, .address-line-2{
