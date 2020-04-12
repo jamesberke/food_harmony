@@ -1,4 +1,6 @@
 .modal-screen {
+	display:  flex;
+	justify-content: center;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -13,8 +15,8 @@
     border: 1px solid gray;
     border-radius: 5px;
     top: 22%;
-    left: 22%;
-    right: 22%;
+    /* left: 22%; */
+    /* right: 22%; */
     z-index: 21;
     position: absolute;
     overflow: hidden;
