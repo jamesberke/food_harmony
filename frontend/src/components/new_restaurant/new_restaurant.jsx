@@ -6,28 +6,31 @@ export default class newRestaurantForm extends Component {
 		super(props);
 		this.state = {
 			name: "",
-			priceRange: null,
-			location_long: null,
-			location_lat: null,
+			priceRange: "",
+			location_long: "",
+			location_lat: "",
 			phoneNumber: "",
 			streetAddress: "",
 			cityAddress: "",
 			webLink: "",
-			photoURL: null,
-			photoFile: null,
+			photoURL: "",
+			photoFile: "",
+			photoKey: Date.now(),
 
 			foodDescription1: "",
 			foodDescription2: "",
-			
+
 			foodPrice1: "",
 			foodPrice2: "",
-			
-			foodFile1: null,
-			foodFile2: null,
-			
+
+			foodFile1: "",
+			foodFile2: "",
+
+			foodFileKey1: Date.now() + 10,
+			foodFileKey2: Date.now() + 20,
+
 			foodFileURL1: "",
 			foodFileURL2: "",
-		
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFile = this.handleFile.bind(this);
@@ -79,7 +82,37 @@ export default class newRestaurantForm extends Component {
 		}
 
 		axios.post("/api/restaurants/new", formData).then(
-			(response) => console.log(response),
+			(response) => {
+				this.setState({
+					name: "",
+					priceRange: "",
+					location_long: "",
+					location_lat: "",
+					phoneNumber: "",
+					streetAddress: "",
+					cityAddress: "",
+					webLink: "",
+
+					photoURL: "",
+					photoFile: "",
+					photoKey: Date.now(),
+
+					foodDescription1: "",
+					foodDescription2: "",
+
+					foodPrice1: "",
+					foodPrice2: "",
+
+					foodFileKey1: Date.now() + 10,
+					foodFileKey2: Date.now() + 20,
+
+					foodFile1: "",
+					foodFile2: "",
+
+					foodFileURL1: "",
+					foodFileURL2: "",
+				});
+			},
 			(response) => {
 				console.log(response);
 			}
@@ -157,6 +190,7 @@ export default class newRestaurantForm extends Component {
 
 						<p>
 							<input
+								key={this.state.photoKey}
 								type="file"
 								onChange={(event) =>
 									this.handleFile(
@@ -191,6 +225,7 @@ export default class newRestaurantForm extends Component {
 							</p>
 
 							<input
+								key={this.state.foodFileKey1}
 								type="file"
 								onChange={(event) =>
 									this.handleFile(
@@ -225,6 +260,7 @@ export default class newRestaurantForm extends Component {
 							</p>
 
 							<input
+								key={this.state.foodFileKey2}
 								type="file"
 								onChange={(event) =>
 									this.handleFile(
