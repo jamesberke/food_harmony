@@ -41,7 +41,7 @@ Food Harmony will be built using the popular MERN stack. This stands for MongoDB
 * Node : allows us to work in JavaScript on our local machines. Without node we would not be able to write our back end database and routes with javascript.
 
 * React-Flickity-Component : this components allows us to dynamically display and flip through pictures saving space on our splash page and adding another dynamic element. It is 
-simple enough to create but styling took some effort.
+simple enough to create but styling was the real challenge and took some effort.
 
 ```
 const flickityOptions = {
@@ -78,20 +78,9 @@ export default Carousel;
 
 The main challenges facing us as a group is figuring out the best way to use the APIs we need and how to format that data as it comes in. 
 
-## Group Members and Work Breakdown
+## Group Members
 
-Harsha Venkatesh, Nicholas Cheung, Steve Cao, James Berke
-
-### Sunday, March 15th, 2020
-
-* MongoDb research into geospatial queries and building skeleton for user auth - Harsha
-* API keys and research on accessing incoming data - Nick
-* Research on and base functionality of infinite scroll - Steve
-* Google Maps API research and mapping frontend component structures - James
-
-### Monday, March 16th, 2020
-
-* Completing user auth and formatting User collection and model - Harsha
-* Completing restaurant collection and model - Nick
-* Completing frontend User auth - James
-* Working on and research for food index component on frontend - Steve
+* Harsha Venkatesh : MongoDB back-end team lead / git integration
+* Nicholas Cheung : MongoDB back-end API specialist / routes
+* James Berke : React front-end team lead / project manager / UI/UX
+* Steve Cao : React front-end specialty features

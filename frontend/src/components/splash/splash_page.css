@@ -30,13 +30,13 @@
 .splash-1-title {
 	color: white;
 	font-family: sans-serif;
-	font-size: 3rem;
+	font-size: 5vw;
 	font-weight: bold;
 	border-radius: 5px;
 }
 
 .carousel-header-text {
-	font-size: 2.5rem;
+	font-size: 2.5vw;
 	color: black;
 	background-color: unset;
 	margin-bottom: 1rem;
@@ -137,7 +137,7 @@ button:hover {
 .footer-text {
 	font-family: sans-serif;
 	color: white;
-	font-size: 3rem;
+	font-size: 3.5vw;
 	font-weight: bold;
 }
 

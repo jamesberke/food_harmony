@@ -1,4 +1,5 @@
 import React from 'react';
+import './restaurant_show.css';
 
 class RestaurantShow extends React.Component {
     constructor(props) {
@@ -33,11 +34,11 @@ class RestaurantShow extends React.Component {
     render() {
         return(
             <div className="restaurant-show-container">
-                <img src="frontend/src/components/carousel/carousel_images/carousel-bbq.jpg"
+                <img src={this.props.pickedRestaurant.photo}
                     className="restaurant-image-main">
                 </img>
                 <div className="restaurant-info-container">
-                    <div className="restaurant-title">
+                    <div className="restaurant-name">
                         {this.props.pickedRestaurant.name}
                     </div>
                     <div className="restaurant-price-value">
@@ -46,6 +47,12 @@ class RestaurantShow extends React.Component {
                     <div className="restaurant-phone-number">
                         {this.props.pickedRestaurant.phoneNumber}
                     </div>
+                    <a href={this.props.pickedRestaurant.webLink}
+                        className='restaurant-web-link'
+                        target="_blank"
+                        >
+                            {this.props.pickedRestaurant.webLink}
+                    </a>
                     {this.parseAddress()}
                 </div>
             </div>
