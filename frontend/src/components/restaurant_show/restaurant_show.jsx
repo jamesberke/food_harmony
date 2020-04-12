@@ -1,5 +1,4 @@
 import React from 'react';
-import placeholder from '../carousel/carousel_images/carousel-bbq.jpg';
 import './restaurant_show.css';
 
 class RestaurantShow extends React.Component {
@@ -35,7 +34,7 @@ class RestaurantShow extends React.Component {
     render() {
         return(
             <div className="restaurant-show-container">
-                <img src={placeholder}
+                <img src={this.props.pickedRestaurant.photo}
                     className="restaurant-image-main">
                 </img>
                 <div className="restaurant-info-container">
