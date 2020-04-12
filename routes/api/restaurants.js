@@ -106,7 +106,6 @@ router.post(
 	(req, res) => {
 		uploadImage("photo", req, res)
 			.then((res) => {
-				console.log(req);
 				const newRestaurant = new Restaurant({
 					name: req.body.name,
 					priceRange: req.body.priceRange,
