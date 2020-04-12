@@ -110,6 +110,10 @@ router.post(
 				const newRestaurant = new Restaurant({
 					name: req.body.name,
 					priceRange: req.body.priceRange,
+					phoneNumber: req.body.phoneNumber,
+					streetAddress: req.body.streetAddress,
+					cityAddress: req.body.cityAddress,
+					webLink: req.body.webLink,
 					photo: req.files[0].location,
 					location: {
 						type: "Point",
