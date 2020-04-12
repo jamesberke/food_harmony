@@ -9,7 +9,7 @@ const RestaurantSchema = new Schema({
 		required: true,
 	},
 	foods: {
-		type: [Food.Schema],
+		// type: [Food.Schema],
 	},
 	priceRange: {
 		type: Number,
