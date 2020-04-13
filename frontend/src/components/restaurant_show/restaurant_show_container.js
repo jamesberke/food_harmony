@@ -5,7 +5,6 @@ import RestaurantShow from './restaurant_show';
 // to render in the RestaurantShow modal
 
 const mapStateToProps = state => {
-    debugger;
     return ({
 
     });
