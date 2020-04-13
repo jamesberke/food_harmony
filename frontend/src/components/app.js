@@ -17,7 +17,7 @@ const App = () => (
             <AuthRoute exact path="/" component={SplashPageContainer} redirect = '/index'/>
 			<ProtectedRoute exact path = "/index" component={FoodIndexContainer} redirect = '/'/>
 			<Route exact path="/new-restaurant" component={newRestaurantForm} />
-            <Route exact path = "/aboutus" component={AboutUs}/>
+            <Route exact path = "/about" component={AboutUs}/>
         </Switch>
     </div>
 );
