@@ -7,6 +7,7 @@ import { Switch } from 'react-router-dom';
 import FoodIndexContainer from '../components/food_index/food_index_container'
 import {Route} from "react-router-dom"
 import newRestaurantForm from "../components/new_restaurant/new_restaurant"
+import AboutUs from '../components/aboutus/aboutus'
 
 const App = () => (
     <div>
@@ -16,6 +17,7 @@ const App = () => (
             <AuthRoute exact path="/" component={SplashPageContainer} redirect = '/index'/>
 			<ProtectedRoute exact path = "/index" component={FoodIndexContainer} redirect = '/'/>
 			<Route exact path="/new-restaurant" component={newRestaurantForm} />
+            <Route exact path = "/aboutus" component={AboutUs}/>
         </Switch>
     </div>
 );
