@@ -1,0 +1,128 @@
+.splash-brothers {
+    position: relative;
+    display: block;
+}
+.ourteaminfo {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 120px;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.75;
+    font-family: ff-meta-serif-web-pro,sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+}
+.ourteaminfo h2 {
+    color: #333;
+    font-family: atrament-web,sans-serif;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.about_us {
+    top: 74px;
+    left:45%;
+    position: absolute;
+    font-size: 40px;
+}
+.four{
+    margin-top: 5px;
+    flex-direction: row;
+}
+.member1{
+    position: absolute;
+    top: 474px;
+    margin-left: 170px;
+    border: 2px;
+}
+.member2{
+    position: absolute;
+    margin-left: 20px;
+    top: 474px;
+    right: 283px;
+}
+.member3{
+    position: absolute;
+    margin-left: 20px;
+    top: 950px;
+    right: 283px;
+}
+.member4{
+    position: absolute;
+    margin-left: 170px;
+    top: 950px;
+    margin-bottom: 100px;
+}
+.member_img1 img {
+    width: 226px;
+    height: 338px;
+
+    border: 1.5px solid gray;
+
+    border-radius: 20px;
+    cursor: pointer;
+}
+.member_img1 img:hover {
+    opacity: 80%;
+}
+
+.linkedin{
+    position: absolute;
+    top:350px ;
+    left: 43px;
+    text-decoration: none;
+
+}
+.github {
+    position: absolute;
+    top:350px ;
+    left: 130px;
+ }
+.angellisticon{
+    position: absolute;
+    top:350px ;
+    left: 166px;
+}
+.name{
+    text-decoration: none;
+    position: absolute;
+    left:238px;
+    top:5px ;
+    font-family: atrament-web,sans-serif;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 550;
+    font-size: 25.11px;
+}
+.position{
+    text-decoration: none;
+    position: absolute;
+    margin-bottom: 40px;
+    width:250px;
+    left:238px;
+    top:120px ;
+    font-size: 17px;
+    font-family: ff-meta-serif-web-pro,sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+.github-link{
+    left:238px;
+}
+.angellist{
+    left:238px;
+}
+
+.github-link:hover {
+    opacity: 60%;
+}
+.angellist:hover {
+    opacity: 60%;
+}
+.linkedin-text:hover {
+    opacity: 60%;
+}
