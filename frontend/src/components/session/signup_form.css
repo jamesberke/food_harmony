@@ -12,6 +12,7 @@
     color: #1a5700;
     font-size: 32px;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .signup-form-input-container {
@@ -20,7 +21,7 @@
 }
 
 .signup-form-input {
-    margin: 4px 10%;
+    margin: 4px 0;
     height: 26px;
     padding-left: 26px;
     border: solid 1px #1a5700;
@@ -37,12 +38,12 @@
 }
 
 .signup-submit-button {
-    margin: 2px 20%;
     margin-top: 0px;
     background-color: #3b9915;
     border: solid 1px #1a5700;
     border-radius: 5px;
     height: 30px;
+    width: 150px;
     color: whitesmoke;
     font-size: 16px;
     font-weight: bold;
@@ -52,9 +53,9 @@
     background-color: #44b317;
 }
 
-.demo-submit-button {
-    margin: 6px 24%;
-    background-color: #ffb20d;
+/* .demo-submit-button { */
+    /* margin: 6px 24%; */
+    /* background-color: #ffb20d;
     border: solid 1px #d49000;
     border-radius: 5px;
     height: 28px;
@@ -65,4 +66,4 @@
 
 .demo-submit-button:hover {
     background-color: #ffbf38;
-}
+} */

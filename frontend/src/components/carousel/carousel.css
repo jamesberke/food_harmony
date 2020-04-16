@@ -5,7 +5,7 @@ https://flickity.metafizzy.co
 	height: auto;
 	overflow-x: hidden;
 	overflow-y: hidden;
-	width: 60%;
+	width: 62%;
 	margin: auto;
 	display: block;
 	height: 380px;
@@ -16,6 +16,7 @@ https://flickity.metafizzy.co
 	min-width: 400px;
 	border-right: solid 3px white;
 	border-radius: 0.6rem;
+	display: block;
 }
 
 .flickity-enabled {
