@@ -17,7 +17,7 @@
 .login-form-input-container {
     display: flex;
     flex-direction: column;
-
+    align-items: center;
 }
 
 .login-input-header {
@@ -29,17 +29,16 @@
 }
 
 .login-form-input {
-    margin: 6px 10%;
     margin-top: 2px;
     height: 26px;
     padding-left: 26px;
     border: solid 1px #1a5700;
     border-radius: 5px;
     font-size: 14px;
-    /* color: #3b9915; */
     opacity: 0.7;
     outline: none;
     background-color: whitesmoke;
+    width: 85%;
 }
 
 .login-form-input:hover {
