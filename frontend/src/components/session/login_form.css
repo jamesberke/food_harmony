@@ -55,6 +55,8 @@
     color: whitesmoke;
     font-size: 16px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
 }
 
 .login-submit-button:hover {
