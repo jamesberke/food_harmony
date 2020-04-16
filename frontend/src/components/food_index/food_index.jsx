@@ -13,7 +13,7 @@ class FoodIndex extends React.Component {
 		let userLocationinfo = {
 			location: {
 				type: "Point",
-				coordinates: [-73.856077, 40.848447],
+				coordinates: [-122.410594, 37.787098],
 			},
 			distance: 10000,
 		};

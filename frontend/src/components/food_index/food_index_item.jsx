@@ -8,13 +8,7 @@ import sushi from "../../components/carousel/carousel_images/carousel-sushi.jpg"
 import tacos from "../../components/carousel/carousel_images/carousel-tacos.jpg";
 import "./food-index.css";
 
-import { Icon, InlineIcon } from "@iconify/react";
-// import heavyDollarSign from "@iconify/icons-noto/heavy-dollar-sign";
-// import locationIcon from "@iconify/icons-oi/location";
-// npm install --save-dev @iconify/react @iconify/icons-fa-solid
-// import locationArrow from "@iconify/icons-fa-solid/location-arrow";
-
-// npm install --save-dev @iconify/react @iconify/icons-oi
+import { Icon } from "@iconify/react";
 import starIcon from "@iconify/icons-oi/star";
 
 class FoodIndexItem extends React.Component {
@@ -26,11 +20,11 @@ class FoodIndexItem extends React.Component {
 
 	priceCategory(price) {
 		if (price > 0 && price < 15) {
-			return 1
+			return 1;
 		} else if (price >= 15 && price < 50) {
-			return 2
+			return 2;
 		} else if (price >= 50) {
-			return 3
+			return 3;
 		}
 	}
 
@@ -42,21 +36,20 @@ class FoodIndexItem extends React.Component {
 			streetAddress: this.props.food.restaurantStreetAddress,
 			cityAddress: this.props.food.restaurantCityAddress,
 			webLink: this.props.food.restaurantWebLink,
-			photo: this.props.food.restaurantPhoto
+			photo: this.props.food.restaurantPhoto,
 		};
 
 		this.props.openModal({ type: "restaurantShow", data: restaurant });
 	}
 
 	render() {
-		let priceRange = []
+		let priceRange = [];
 		for (let i = 0; i < this.priceCategory(this.props.food.price); i++) {
-			priceRange.push("$")
+			priceRange.push("$");
 		}
 		let i = Math.floor(Math.random() * this.demoFoods.length);
 		return (
-			<div className="food-index-item"
-				onClick={this.pickRestaurant}>
+			<div className="food-index-item" onClick={this.pickRestaurant}>
 				<div className="overlay">
 					<div className="overlay-content-container">
 						<div className="overlay-title">
@@ -67,8 +60,11 @@ class FoodIndexItem extends React.Component {
 							<i>{this.props.food.restaurantName}</i>
 						</div>
 						<div className="overlay-rating-info">
-
-							<Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} /><Icon icon={starIcon} />
+							<Icon icon={starIcon} />
+							<Icon icon={starIcon} />
+							<Icon icon={starIcon} />
+							<Icon icon={starIcon} />
+							<Icon icon={starIcon} />
 						</div>
 						<div className="overlay-details">
 							<div className="overlay-details-item-1">
@@ -80,14 +76,17 @@ class FoodIndexItem extends React.Component {
 									<Icon icon={locationArrow} />
 								</span> */}
 								<span className="overlay-details-item-3-text">
-									{(this.props.food.distance / 1000).toFixed(1)} km
+									{(this.props.food.distance / 1000).toFixed(
+										1
+									)}{" "}
+									km
 								</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<img src={this.demoFoods[i]} />
-			</div >
+				<img src={this.props.food.photo} />
+			</div>
 		);
 	}
 }
