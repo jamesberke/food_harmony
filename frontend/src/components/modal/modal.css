@@ -1,21 +1,22 @@
 .modal-screen {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-render {
     background-color: whitesmoke;
     border: 1px solid gray;
     border-radius: 5px;
-    top: 22%;
-    left: 22%;
-    right: 22%;
     z-index: 21;
-    position: absolute;
     overflow: hidden;
+    padding: 30px;
+    position: fixed;
 }
