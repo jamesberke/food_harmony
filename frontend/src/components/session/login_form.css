@@ -1,9 +1,10 @@
 .login-form-container {
-    margin: 6%;
-    margin-top: 4%;
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
+    justify-content: center;
+    width: 100%;
+    /* padding: 30px 0px; */
 }
 
 .login-form-title {
@@ -16,6 +17,7 @@
 .login-form-input-container {
     display: flex;
     flex-direction: column;
+
 }
 
 .login-input-header {
@@ -45,15 +47,16 @@
 }
 
 .login-submit-button {
-    margin: 2px 20%;
-    margin-top: 0px;
     background-color: #3b9915;
     border: solid 1px #1a5700;
     border-radius: 5px;
     height: 30px;
+    width: 150px;
     color: whitesmoke;
     font-size: 16px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
 }
 
 .login-submit-button:hover {
@@ -62,15 +65,14 @@
 }
 
 .demo-submit-button {
-    margin: 6px 24%;
     background-color: #ffb20d;
     border: solid 1px #d49000;
     border-radius: 5px;
     height: 28px;
+    width: 190px;
     color: whitesmoke;
     font-size: 16px;
-	font-weight: bold;
-	
+    font-weight: bold;
 }
 
 .demo-submit-button:hover {
