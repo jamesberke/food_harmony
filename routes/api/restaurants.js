@@ -100,46 +100,46 @@ function uploadImage(key, req, res) {
 }
 
 // posting new restaurant
-router.post(
-	"/new",
-	// passport.authenticate("jwt", { session: false }),
-	(req, res) => {
-		uploadImage("photo", req, res)
-			.then((res) => {
-				const newRestaurant = new Restaurant({
-					name: req.body.name,
-					priceRange: req.body.priceRange,
-					phoneNumber: req.body.phoneNumber,
-					streetAddress: req.body.streetAddress,
-					cityAddress: req.body.cityAddress,
-					webLink: req.body.webLink,
-					photo: req.files[0].location,
-					location: {
-						type: "Point",
-						coordinates: [
-							req.body.location_long,
-							req.body.location_lat,
-						],
-					},
-					foods: [
-						new Food({
-							photo: req.files[1].location,
-							description: req.body.foodDescription1,
-							price: req.body.foodPrice1,
-						}),
-						new Food({
-							photo: req.files[2].location,
-							description: req.body.foodDescription2,
-							price: req.body.foodPrice2,
-						}),
-					],
-				});
-				return newRestaurant.save();
-			})
-			.then((restaurant) => res.json(restaurant))
-			.catch((err) => console.log(err));
-	}
-);
+// router.post(
+// 	"/new",
+// 	passport.authenticate("jwt", { session: false }),
+// 	(req, res) => {
+// 		uploadImage("photo", req, res)
+// 			.then((res) => {
+// 				const newRestaurant = new Restaurant({
+// 					name: req.body.name,
+// 					priceRange: req.body.priceRange,
+// 					phoneNumber: req.body.phoneNumber,
+// 					streetAddress: req.body.streetAddress,
+// 					cityAddress: req.body.cityAddress,
+// 					webLink: req.body.webLink,
+// 					photo: req.files[0].location,
+// 					location: {
+// 						type: "Point",
+// 						coordinates: [
+// 							req.body.location_long,
+// 							req.body.location_lat,
+// 						],
+// 					},
+// 					foods: [
+// 						new Food({
+// 							photo: req.files[1].location,
+// 							description: req.body.foodDescription1,
+// 							price: req.body.foodPrice1,
+// 						}),
+// 						new Food({
+// 							photo: req.files[2].location,
+// 							description: req.body.foodDescription2,
+// 							price: req.body.foodPrice2,
+// 						}),
+// 					],
+// 				});
+// 				return newRestaurant.save();
+// 			})
+// 			.then((restaurant) => res.json(restaurant))
+// 			.catch((err) => console.log(err));
+// 	}
+// );
 
 // posting photos w/ restaurant ID
 router.patch(

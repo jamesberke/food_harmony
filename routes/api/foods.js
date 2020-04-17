@@ -112,38 +112,38 @@ const upload = multer({
 	}),
 }).single("picture");
 
-router.post(
-	"/new",
-	// passport.authenticate("jwt", { session: false }),
-	(req, res) => {
-		upload(req, res, err => {
-			// console.log(res);
-			if (err) {
-				res.status(400).send("Something went wrong!");
-			} else {
-				// res.send(req.file);
-				const newFood = new Food({
-					photo: req.file.location,
-					description: req.body.description,
-					price: req.body.price,
-					location: req.body.location,
-					restaurantId: req.body.restaurantId
-				});
+// router.post(
+// 	"/new",
+// 	passport.authenticate("jwt", { session: false }),
+// 	(req, res) => {
+// 		upload(req, res, err => {
+// 			// console.log(res);
+// 			if (err) {
+// 				res.status(400).send("Something went wrong!");
+// 			} else {
+// 				// res.send(req.file);
+// 				const newFood = new Food({
+// 					photo: req.file.location,
+// 					description: req.body.description,
+// 					price: req.body.price,
+// 					location: req.body.location,
+// 					restaurantId: req.body.restaurantId
+// 				});
 
-				const restaurant = Restaurant.findByIdAndUpdate(
-					req.body.restaurantId,
-					{
-						$push: {
-							foods: newFood
-						}
-					},
-					{ new: true }
-				).exec();
+// 				const restaurant = Restaurant.findByIdAndUpdate(
+// 					req.body.restaurantId,
+// 					{
+// 						$push: {
+// 							foods: newFood
+// 						}
+// 					},
+// 					{ new: true }
+// 				).exec();
 
-				res.status(200).json(restaurant);
-			}
-		});
-	}
-);
+// 				res.status(200).json(restaurant);
+// 			}
+// 		});
+// 	}
+// );
 
 module.exports = router;
