@@ -12,6 +12,16 @@ https://css-tricks.com/seamless-responsive-photo-grid/
 	margin: 50px;
 }
 
+.loading-wrapper {
+	display: flex;
+	position:  absolute;
+	align-items:  center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
 .food-index-item {
 	position: relative;
 }
