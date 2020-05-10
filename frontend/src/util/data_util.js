@@ -40,11 +40,13 @@ export const loadImage = (url) => {
 	return new Promise((resolve, reject) => {
 		const image = new Image();
 		image.onload = function () {
-			resolve(url);
+
+			resolve({url: url, width: image.naturalWidth, height: image.naturalHeight});
 		};
 		image.onerror = function () {
+			console.log(url)
 			reject(url);
 		};
-		image.src = url;
+		image.src = url
 	});
 };

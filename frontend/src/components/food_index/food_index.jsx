@@ -8,7 +8,7 @@ import { loadImage } from "../../util/data_util";
 class FoodIndex extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { loading: true, foods: [] };
+		this.state = { loading: true, foods: [], images: [] };
 	}
 
 	async componentDidMount() {
@@ -27,26 +27,25 @@ class FoodIndex extends React.Component {
 		// 	},
 		// 	distance: 10000,
 		// };
-
 		try {
 			let resp = await DataUtil.fetchFoods(userLocationinfo);
 
 			let images = [];
 			for (let key in resp.data) {
-				let img = await loadImage(resp.data[key].photo);
-				images.push(img);
-			}
 
-			Promise.all(images).then((response) => {
-				this.setState({ loading: false, foods: resp.data });
-			});
+				let img = await loadImage(resp.data[key].photo);
+				// console.log(img)
+				images.push(<img src={img.url} width={img.width} height={img.height} />);
+			}
+			// Promise.all(images).then((response) => {
+				this.setState({ loading: false, foods: resp.data, images: images });
+			// });
 		} catch (e) {
 			console.error(e);
 		}
 	}
 
 	render() {
-
 		if (this.state.loading) {
 			return (
 				<div className="loading-wrapper">
@@ -68,6 +67,7 @@ class FoodIndex extends React.Component {
 					food={food}
 					openModal={this.props.openModal}
 					key={idx}
+					img={this.state.images[idx]}
 				/>
 			);
 		});

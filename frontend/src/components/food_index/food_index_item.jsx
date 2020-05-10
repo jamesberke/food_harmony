@@ -85,7 +85,8 @@ class FoodIndexItem extends React.Component {
 						</div>
 					</div>
 				</div>
-				<img src={this.props.food.photo} />
+				{/* <img src={this.props.food.photo} /> */}
+				{this.props.img}
 			</div>
 		);
 	}
