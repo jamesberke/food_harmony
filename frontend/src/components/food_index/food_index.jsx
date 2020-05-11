@@ -33,9 +33,11 @@ class FoodIndex extends React.Component {
 			let images = [];
 			for (let key in resp.data) {
 
-				let img = await loadImage(resp.data[key].photo);
-				// console.log(img)
-				images.push(<img src={img.url} width={img.width} height={img.height} />);
+				// https://food-harmony-dev.s3.us-west-1.amazonaws.com/ghiradelli1.jpg
+				let smallerImageURL = resp.data[key].photo.replace("food-harmony-dev", "food-harmony-dev-50-per-images")
+				let img = loadImage(smallerImageURL);
+
+				images.push(<div className="fade-in" ><img src={img.url} width={img.width} height={img.height} /></div>);
 			}
 			// Promise.all(images).then((response) => {
 				this.setState({ loading: false, foods: resp.data, images: images });
