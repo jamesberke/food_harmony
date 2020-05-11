@@ -32,20 +32,20 @@ class FoodIndex extends React.Component {
 
 			let images = [];
 			for (let key in resp.data) {
-				// https://food-harmony-dev.s3.us-west-1.amazonaws.com/ghiradelli1.jpg
-				let smallerImageURL = resp.data[key].photo.replace(
-					"food-harmony-dev",
-					"food-harmony-dev-50-per-images"
-				);
-				
-				images.push(loadImage(smallerImageURL));
-				// images.push(<div className="fade-in" ><img src={img.url} width={img.width} height={img.height} /></div>);
+				images.push(loadImage(resp.data[key].photo));
 			}
 			Promise.all(images).then((response) => {
-				
-				images = response.map(image => {
-					return (<div className="fade-in"><img src={image.url} width={image.width} height={image.height} /></div>)
-				})
+				images = response.map((image) => {
+					return (
+						<div className="fade-in">
+							<img
+								src={image.url}
+								width={image.width}
+								height={image.height}
+							/>
+						</div>
+					);
+				});
 
 				this.setState({
 					loading: false,
