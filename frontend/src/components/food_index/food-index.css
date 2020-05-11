@@ -106,6 +106,9 @@ https://css-tricks.com/seamless-responsive-photo-grid/
 
 /* End Masonry layout */
 
+/*Fade in CSS adapted from: 
+https://blog.hubspot.com/website/css-fade-in
+*/
 .fade-in {
 	animation: fadeIn ease 5s;
 	-webkit-animation: fadeIn ease 5s;
