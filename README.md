@@ -80,7 +80,7 @@ The main challenges facing us as a group is figuring out the best way to use the
 
 ## Group Members
 
-* Harsha Venkatesh : MongoDB back-end team lead / git integration
+* Hersha Venkatesh : MongoDB back-end team lead / git integration
 * Nicholas Cheung : MongoDB back-end API specialist / routes
 * James Berke : React front-end team lead / project manager / UI/UX
 * Steve Cao : React front-end specialty features
