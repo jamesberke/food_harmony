@@ -2,7 +2,6 @@
 https://flickity.metafizzy.co
 ---------------------------------------------- */
 .carousel {
-	height: auto;
 	overflow-x: hidden;
 	overflow-y: hidden;
 	width: 62%;
@@ -13,7 +12,8 @@ https://flickity.metafizzy.co
 
 .carousel-image {
 	height: 100%;
-	min-width: 400px;
+	object-fit: cover;
+	width: 450px;
 	border-right: solid 3px white;
 	border-radius: 0.6rem;
 	display: block;

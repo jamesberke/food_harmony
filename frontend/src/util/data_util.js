@@ -14,12 +14,11 @@ import axios from "axios";
     "distance": 10000
 }
 */
-export const fetchFoods = info => {
+export const fetchFoods = (info) => {
 	return axios.post("/api/foods/find", info);
-
 };
 
-export const fetchRestaurants = info => {
+export const fetchRestaurants = (info) => {
 	return axios.get("/api/restaurants/find", info);
 };
 
@@ -33,6 +32,21 @@ export const fetchRestaurants = info => {
 }
 */
 
-export const createFood = info => {
+export const createFood = (info) => {
 	return axios.post("/api/foods/new", info);
+};
+
+export const loadImage = (url) => {
+	return new Promise((resolve, reject) => {
+		const image = new Image();
+		image.onload = function () {
+
+			resolve({url: url, width: image.naturalWidth, height: image.naturalHeight});
+		};
+		image.onerror = function () {
+			console.log(url)
+			reject(url);
+		};
+		image.src = url
+	});
 };
