@@ -38,8 +38,56 @@ Food Harmony will be built using the popular MERN stack. This stands for MongoDB
 
 * React / Redux : The visual part of the app. React is great for building compartmentalized and organized web structures. We also use react to continuously update the UI without having to re-render the whole page which can save tons of time on loading. This is very useful for an image heavy app that exists mainly to transfer and curate data.
 
-* Node : allows us to work in JavaScript on our local machines. Without node we would not be able to write our back end database and routes with javascript.
 
+* CSS/HTML :  As the user scrolls along, no each Food picture is given a unique proportion 
+![Masonry Layout](https://foodharmony.s3-us-west-1.amazonaws.com/Screen+Shot+2020-05-21+at+10.27.10+PM.png)
+```
+.food-index-item {
+	position: relative;
+}
+.food-index-item img {
+	width: 100% !important;
+	height: auto !important;
+	margin-bottom: 15px;
+	border-radius: 5px;
+}
+
+.food-index-item:hover .overlay {
+	height: 120px;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 3px;
+	left: 0;
+	right: 0;
+	/* background-color: rgba(255, 255, 255, 0.65); */
+	background-color: rgba(255, 255, 255, 0.9);
+	overflow: hidden;
+	width: 100%;
+	height: 0;
+	/* height: 33%; */
+	transition: 0.5s ease;
+	margin-bottom: 15px;
+}
+```
+
+* Node.js : allows us to work in JavaScript on our local machines. Without node we would not be able to write our back end database and routes with javascript.
+multer middleware applied to programatically store all photos on AWS S3
+```
+const upload = multer({
+	storage: multerS3({
+		s3: s3,
+		contentType: multerS3.AUTO_CONTENT_TYPE,
+		bucket: keys.AWS_BUCKET_NAME,
+		key: function (req, file, cb) {
+
+			cb(null, Date.now().toString());
+			//cb(null, file.originalname); //use cb(null, Date.now().toString()) for unique file keys
+		},
+	}),
+}).single("picture");
+```
 * React-Flickity-Component : this components allows us to dynamically display and flip through pictures saving space on our splash page and adding another dynamic element. It is 
 simple enough to create but styling was the real challenge and took some effort.
 
