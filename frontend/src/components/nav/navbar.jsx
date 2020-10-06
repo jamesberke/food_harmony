@@ -12,8 +12,10 @@ class NavBar extends React.Component {
 		return (
 			<div className="navbar-container">
 				<div className="navbar-left">
-					<img src={logo} className="nav-logo" />
+					<Link to="/" className="navbar-home"><img src={logo} className="nav-logo" />
+					{/* <img src={logo} className="nav-logo" /> */}
 					<div className="navbar-logo-main">FoodHarmony</div>
+					</Link>
 				</div>
 				<div className="navbar-right">
 					<Link to="/about" className="navbar-about-link">
