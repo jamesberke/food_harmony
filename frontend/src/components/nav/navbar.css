@@ -28,7 +28,11 @@
     height: 38px;
     margin-left: 4%;
 }
-
+.navbar-home {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
 .navbar-logo-main {
     font-size: 28px;
     color: #3b9915;
