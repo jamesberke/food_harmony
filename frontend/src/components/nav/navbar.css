@@ -33,6 +33,9 @@
     text-decoration: none;
     align-items: center;
 }
+.navbar-home:hover {
+    cursor: pointer;
+}
 .navbar-logo-main {
     font-size: 28px;
     color: #3b9915;
