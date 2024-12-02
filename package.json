@@ -30,7 +30,7 @@
     "file-type": "^14.1.4",
     "fs": "0.0.1-security",
     "jimp": "^0.9.6",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongodb-stitch-browser-sdk": "^4.8.0",
     "mongoose": "^5.9.5",
     "multer": "^1.4.2",
